@@ -8,16 +8,16 @@
     <fragment
         android:id="@+id/homeScreenFragment"
         android:name="com.norah.albaqami.warmhaven.HomeScreenFragment"
-        android:label="fragment_home_screen"
+        android:label="Home"
         tools:layout="@layout/fragment_home_screen" />
     <fragment
         android:id="@+id/userScreenFragment"
         android:name="com.norah.albaqami.warmhaven.user.ui.UserScreenFragment"
-        android:label="fragment_user_screen"
+        android:label="Profile"
         tools:layout="@layout/fragment_user_screen" />
     <fragment
         android:id="@+id/favoriteFragment"
         android:name="com.norah.albaqami.warmhaven.favorite.ui.FavoriteFragment"
-        android:label="fragment_favorite"
+        android:label="Favorite"
         tools:layout="@layout/fragment_favorite" />
 </navigation>
