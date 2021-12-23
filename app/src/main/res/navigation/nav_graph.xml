@@ -12,9 +12,9 @@
         tools:layout="@layout/fragment_home_screen" />
     <fragment
         android:id="@+id/userScreenFragment"
-        android:name="com.norah.albaqami.warmhaven.user.ui.UserScreenFragment"
+        android:name="com.norah.albaqami.warmhaven.user.ui.UserProfileFragment"
         android:label="Profile"
-        tools:layout="@layout/fragment_user_screen" />
+        tools:layout="@layout/fragment_user_profile" />
     <fragment
         android:id="@+id/favoriteFragment"
         android:name="com.norah.albaqami.warmhaven.favorite.ui.FavoriteFragment"
