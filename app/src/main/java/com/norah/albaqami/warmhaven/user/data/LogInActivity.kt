@@ -31,6 +31,8 @@ class LogInActivity : AppCompatActivity() {
                 .createSignInIntentBuilder()
                 .setAvailableProviders(providers)
                 .setIsSmartLockEnabled(false)
+                .setTheme(R.style.LoginUi)
+                .setLogo(R.drawable.cat)
                 .build(),
                 RC_SIGN
 
@@ -43,9 +45,8 @@ class LogInActivity : AppCompatActivity() {
             var response = IdpResponse.fromResultIntent(data)
             if (requestCode == Activity.RESULT_OK){
                 val user = FirebaseAuth.getInstance().currentUser
-                Log.d("TAG", "${user?.displayName}")
+                //Log.d("TAG", "${user?.displayName}")
                startActivity(Intent(this,ProfileActivity::class.java))
-               // startActivityFromFragment(Intent(this,Profile::class.java))
             }else{
                 if (response == null){
                     finish()
