@@ -23,18 +23,23 @@ class ProfileActivity : AppCompatActivity() {
       binding = DataBindingUtil.setContentView(this, R.layout.activity_profile)
 
         getProfileImage()
-        loadData()
+    loadData()
         binding.savename.setOnClickListener {
             saveData()
+
         }
          getUserEmail()
         getUserNumber()
         binding.logout.setOnClickListener {
             AuthUI.getInstance().signOut(this).addOnSuccessListener {
-                startActivity(Intent(this,LogInActivity::class.java))
+              val logoutIntent  = (Intent(this,LogInActivity::class.java))
+                logoutIntent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                startActivity(logoutIntent)
                 Toast.makeText(this,"Successfully Logged Out", Toast.LENGTH_LONG).show()
             }
+
         }
+
     }
     fun getProfileImage(){
        Glide.with(this)
@@ -49,19 +54,22 @@ class ProfileActivity : AppCompatActivity() {
     fun getUserNumber(){
         binding.userphone.text= auth?.phoneNumber
     }
-    fun loadData(){
-        val shared = getSharedPreferences(SHARED , Context.MODE_PRIVATE)
-        val name =shared.getString(NAME ,"")
-      //  binding.nameInput.text= name.toString()
 
-    }
     fun saveData(){
-        val name = binding.nameInput.text.toString()
+        var name = binding.nameInput.text.toString()
         val shared = getSharedPreferences(SHARED , Context.MODE_PRIVATE)
         val editor =shared.edit()
         editor.putString(NAME,name)
         editor.apply()
+
         Toast.makeText(this,"Your Name Successfully Modify", Toast.LENGTH_LONG).show()
+
+    }
+    fun loadData(){
+        val shared = getSharedPreferences(SHARED , Context.MODE_PRIVATE)
+        var name =shared.getString(NAME ,"")
+
+        binding.nameInput.setText(name)
 
     }
 }

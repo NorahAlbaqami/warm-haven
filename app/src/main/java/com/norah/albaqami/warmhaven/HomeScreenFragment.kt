@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import com.google.firebase.auth.FirebaseAuth
 import com.norah.albaqami.warmhaven.databinding.FragmentHomeScreenBinding
 import com.norah.albaqami.warmhaven.user.data.LogInActivity
@@ -41,7 +42,9 @@ class HomeScreenFragment : Fragment() {
                 getActivity()?.startActivity(intent)
             }
         }
-
+     binding.pets.setOnClickListener { view :View ->
+         Navigation.findNavController(view).navigate(HomeScreenFragmentDirections.actionHomeScreenFragmentToPetsListFragment())
+     }
     }
 
 }

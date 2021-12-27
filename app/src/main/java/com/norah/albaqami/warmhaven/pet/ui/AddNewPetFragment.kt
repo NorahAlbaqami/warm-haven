@@ -5,14 +5,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.Navigation
+import android.widget.ArrayAdapter
 import com.norah.albaqami.warmhaven.R
-import com.norah.albaqami.warmhaven.databinding.FragmentHomeScreenBinding
+import com.norah.albaqami.warmhaven.databinding.FragmentAddNewPetBinding
 import com.norah.albaqami.warmhaven.databinding.FragmentPetsListBinding
 
 
-class PetsListFragment : Fragment() {
-   private lateinit var binding: FragmentPetsListBinding
+class AddNewPetFragment : Fragment() {
+    private lateinit var binding: FragmentAddNewPetBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,15 +24,20 @@ class PetsListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        binding = FragmentPetsListBinding.inflate(inflater, container, false)
+        binding = FragmentAddNewPetBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.addpetbtn.setOnClickListener {
-Navigation.findNavController(it).navigate(PetsListFragmentDirections.actionPetsListFragmentToAddNewPetFragment())
-        }
+
+
     }
 
+    override fun onResume() {
+        super.onResume()
+        val pets = resources.getStringArray(R.array.pets)
+        val arrayAdopter = ArrayAdapter(requireContext(), R.layout.drobdown_items,pets)
+        binding.autoCompleteTextView.setAdapter(arrayAdopter)
+    }
 }

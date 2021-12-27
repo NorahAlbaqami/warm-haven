@@ -1,5 +1,12 @@
 <resources>
     <string name="app_name">Warm Haven</string>
-    <!-- TODO: Remove or change this placeholder text -->
+    
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string-array name="pets">
+        <item> Cat</item>
+        <item> Dog </item>
+        <item>Rabbit</item>
+        <item>Hamster</item>
+        <item>Bird</item>
+    </string-array>
 </resources>
