@@ -23,11 +23,9 @@
     app:layout_constraintHorizontal_bias="1.0"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent"
-    app:listData="@{}"
     app:spanCount="2"
     tools:itemCount="16"
-    tools:listitem="@layout/pet_card"/>
-
+    />
 
 
         <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
@@ -36,7 +34,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|right"
             android:layout_margin="16dp"
-            android:layout_marginBottom="15dp"
             android:contentDescription=""
             android:text="Add Pet"
             app:icon="@drawable/add"
@@ -45,6 +42,7 @@
             app:layout_constraintHorizontal_bias="0.942"
             app:layout_constraintStart_toStartOf="parent"
 
-            app:layout_constraintVertical_bias="0.94" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.896" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

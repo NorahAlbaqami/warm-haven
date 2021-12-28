@@ -19,38 +19,75 @@
             android:layout_marginTop="16dp"
             android:backgroundTint="#00FFFFFF"
             android:src="@drawable/person"
-            android:tint="#cf297f"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.997"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/baby_pink" />
 
         <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/pets"
-            android:layout_width="228dp"
-            android:layout_height="233dp"
+            android:id="@+id/animation"
+            android:layout_width="317dp"
+            android:layout_height="230dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.255"
+            app:layout_constraintVertical_bias="0.164"
             app:lottie_autoPlay="true"
             app:lottie_loop="true"
             app:lottie_rawRes="@raw/pets" />
 
-        <ImageView
-            android:id="@+id/announcement"
-            android:layout_width="228dp"
-            android:layout_height="233dp"
+        <TextView
+            android:id="@+id/pet_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="Pets in adoption"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.103"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/pets"
-            app:lottie_autoPlay="true"
-            app:lottie_loop="true"
-            app:lottie_rawRes="@raw/announcement" />
+            app:layout_constraintVertical_bias="0.038" />
 
+        <TextView
+            android:id="@+id/announcement_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="Announcement"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.813"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/announce_nav"
+            app:layout_constraintVertical_bias="0.028" />
+
+        <ImageView
+            android:id="@+id/pets"
+            android:layout_width="155dp"
+            android:layout_height="169dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.062"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/animation"
+            app:layout_constraintVertical_bias="0.51"
+            app:srcCompat="@drawable/petcare" />
+
+        <ImageView
+            android:id="@+id/announce_nav"
+            android:layout_width="142dp"
+            android:layout_height="161dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.51"
+            app:layout_constraintStart_toEndOf="@+id/pets"
+            app:layout_constraintTop_toBottomOf="@+id/animation"
+            app:layout_constraintVertical_bias="0.527"
+            app:srcCompat="@drawable/announcement" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
