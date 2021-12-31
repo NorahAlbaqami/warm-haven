@@ -3,7 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable-v24/ic_broken_image.xml" value="0.30648148148148147" />
+        <entry key="app/src/main/res/drawable-v24/ic_connection_error.xml" value="0.30648148148148147" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.21944444444444444" />
+        <entry key="app/src/main/res/drawable-v24/loading_img.xml" value="0.30648148148148147" />
         <entry key="app/src/main/res/drawable/favorite.xml" value="0.29814814814814816" />
         <entry key="app/src/main/res/drawable/home.xml" value="0.21944444444444444" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.29814814814814816" />
@@ -18,6 +21,7 @@
         <entry key="app/src/main/res/layout/fragment_pet_details.xml" value="0.35833333333333334" />
         <entry key="app/src/main/res/layout/fragment_pets_list.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_user_screen.xml" value="0.35833333333333334" />
+        <entry key="app/src/main/res/layout/ic_connection_error.xml" value="0.35833333333333334" />
         <entry key="app/src/main/res/layout/pet_card.xml" value="0.3578125" />
         <entry key="app/src/main/res/menu/bottom_navigation_menu.xml" value="0.35833333333333334" />
       </map>

@@ -10,6 +10,7 @@ import androidx.navigation.Navigation
 import com.norah.albaqami.warmhaven.R
 import com.norah.albaqami.warmhaven.databinding.FragmentHomeScreenBinding
 import com.norah.albaqami.warmhaven.databinding.FragmentPetsListBinding
+import com.norah.albaqami.warmhaven.pet.adapter.PetsAdapter
 import com.norah.albaqami.warmhaven.pet.ui.logic.PetViewModel
 
 
@@ -33,6 +34,7 @@ class PetsListFragment : Fragment() {
 
         // Giving the binding access to the OverviewViewModel
         binding.viewModel = viewModel
+        binding?.petList?.adapter = PetsAdapter()
         return binding.root
     }
 
