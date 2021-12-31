@@ -1,5 +1,6 @@
 package com.norah.albaqami.warmhaven.pet.binding
 
+import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
@@ -15,11 +16,11 @@ fun bindImage(imgView: ImageView, imgUrl: String?) {
     imgUrl?.let {
         Glide
             .with(imgView.context)
-            .load("https://warm-haven-4058f-default-rtdb.firebaseio.com/data/pet/0/${imgUrl}.json")
+            .load("${imgUrl}")
             .placeholder(R.drawable.loading_animation)
             .error(R.drawable.ic_broken_image)
             .into(imgView)
-
+        Log.d("nana", "bindImage: ${imgUrl}")
     }
 }
 @BindingAdapter("listData")
