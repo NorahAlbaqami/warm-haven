@@ -15,11 +15,7 @@
             app:destination="@id/petsListFragment" />
     </fragment>
 
-    <fragment
-        android:id="@+id/favoriteFragment"
-        android:name="com.norah.albaqami.warmhaven.favorite.ui.FavoriteFragment"
-        android:label="Favorite"
-        tools:layout="@layout/fragment_favorite" />
+
     <fragment
         android:id="@+id/petsListFragment"
         android:name="com.norah.albaqami.warmhaven.pet.ui.PetsListFragment"
