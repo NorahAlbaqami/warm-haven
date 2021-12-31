@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        app:cardUseCompatPadding="true"
+        app:cardCornerRadius="30dp"
+        android:id="@+id/PetCard">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp">
+
+
+            <ImageView
+                android:id="@+id/pet_picture"
+                android:layout_width="200dp"
+                android:layout_height="150dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.506"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.311"
+                tools:srcCompat="@tools:sample/backgrounds/scenic"
+                />
+
+
+            <TextView
+                android:padding="10dp"
+                android:id="@+id/pet_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textAlignment="center"
+                android:layout_marginTop="8dp"
+                android:text="@{}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/pet_picture" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</layout>

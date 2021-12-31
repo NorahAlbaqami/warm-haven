@@ -14,15 +14,15 @@
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/userimage"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="200dp"
+            android:layout_height="150dp"
             android:src="@drawable/paw"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.488"
+            app:layout_constraintHorizontal_bias="0.483"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.106" />
+            app:layout_constraintVertical_bias="0.027" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/name_Container"
@@ -41,11 +41,12 @@
                 android:id="@+id/name_input"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:text="Warm Haven User"
                 android:hint="name"
                 android:inputType="text"
                 android:lines="1"
 
-                 />
+                />
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
@@ -94,13 +95,12 @@
             app:layout_constraintHorizontal_bias="0.485"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/username"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintVertical_bias="1.0" />
 
         <Button
             android:id="@+id/announce"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
             android:layout_marginBottom="180dp"
             android:text="my announcements"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -121,5 +121,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.297"
             app:srcCompat="@drawable/check" />
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

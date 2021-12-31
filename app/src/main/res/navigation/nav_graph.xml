@@ -9,15 +9,32 @@
         android:id="@+id/homeScreenFragment"
         android:name="com.norah.albaqami.warmhaven.HomeScreenFragment"
         android:label="Home"
-        tools:layout="@layout/fragment_home_screen" />
-    <fragment
-        android:id="@+id/userScreenFragment"
-        android:name="com.norah.albaqami.warmhaven.user.ui.UserProfileFragment"
-        android:label="Profile"
-        tools:layout="@layout/fragment_user_profile" />
+        tools:layout="@layout/fragment_home_screen" >
+        <action
+            android:id="@+id/action_homeScreenFragment_to_petsListFragment"
+            app:destination="@id/petsListFragment" />
+    </fragment>
+
     <fragment
         android:id="@+id/favoriteFragment"
         android:name="com.norah.albaqami.warmhaven.favorite.ui.FavoriteFragment"
         android:label="Favorite"
         tools:layout="@layout/fragment_favorite" />
+    <fragment
+        android:id="@+id/petsListFragment"
+        android:name="com.norah.albaqami.warmhaven.pet.ui.PetsListFragment"
+        android:label="Pets in adoption"
+        tools:layout="@layout/fragment_pets_list">
+        <action
+            android:id="@+id/action_petsListFragment_to_addNewPetFragment"
+            app:destination="@id/addNewPetFragment" />
+    </fragment>
+    <activity
+        android:id="@+id/profileActivity"
+        android:name="com.norah.albaqami.warmhaven.user.data.ProfileActivity"
+        android:label="ProfileActivity" />
+    <fragment
+        android:id="@+id/addNewPetFragment"
+        android:name="com.norah.albaqami.warmhaven.pet.ui.AddNewPetFragment"
+        android:label="Add New Pet" />
 </navigation>

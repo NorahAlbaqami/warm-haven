@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+  <ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".pet.ui.AddNewPetFragment">
+        <ImageView
+            android:id="@+id/pet_pic"
+            android:layout_width="168dp"
+            android:layout_height="155dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.462"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.07"
+            android:src="@drawable/image_placeholder"
+            />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/select_pet_image"
+            android:layout_width="35dp"
+            android:layout_height="46dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.192"
+            app:layout_constraintStart_toEndOf="@+id/pet_pic"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.214"
+            app:srcCompat="@drawable/petpic" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/type"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:hint="Choice Pet Type"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/pet_pic"
+            app:layout_constraintVertical_bias="0.067">
+
+            <AutoCompleteTextView
+                android:id="@+id/autoCompleteTextView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:inputType="none"
+                android:padding="16dp"
+                android:text="Cat" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/NameContainer"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_marginHorizontal="20dp"
+
+            app:helperTextTextColor="@android:color/holo_red_dark"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/type">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/name_input"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:lines="1"
+            android:inputType="text"
+            android:hint="Pet Name"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/location_container"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_marginHorizontal="20dp"
+            app:helperTextTextColor="@android:color/holo_red_dark"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/NameContainer">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/location_input"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:lines="1"
+                android:inputType="text"
+                android:hint="Location"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/phone_container"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_marginHorizontal="20dp"
+            app:helperTextTextColor="@android:color/holo_red_dark"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            app:counterMaxLength="10"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/location_container">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/phone_input"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:lines="1"
+                android:inputType="number"
+                android:hint="Phone Number"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/description_container"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_marginHorizontal="20dp"
+            app:helperTextTextColor="@android:color/holo_red_dark"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/phone_container">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/description_input"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="text"
+                android:hint="Description"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="Add"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/description_container"
+            />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
+</layout>
