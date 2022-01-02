@@ -15,15 +15,16 @@ class PetViewModel : ViewModel() {
     private val _status = MutableLiveData<PetApiStatus>()
     val status: LiveData<PetApiStatus> = _status
 
-    private val _petsList =MutableLiveData<List<PetItem>>()
-    val petsList :LiveData<List<PetItem>> = _petsList
+    private val _petsList =MutableLiveData<List<PetItem?>>()
+    val petsList :LiveData<List<PetItem?>> = _petsList
 
     val petImage = MutableLiveData<String>()
     val petName = MutableLiveData<String>()
     val petType = MutableLiveData<String>()
     val location = MutableLiveData<String>()
-    val phone =  MutableLiveData<Int>()
+    val phone =  MutableLiveData<String>()
     val description = MutableLiveData<String>()
+    val id = MutableLiveData<String>()
 init {
     getPetsList()
 }
@@ -39,5 +40,16 @@ init {
                 _petsList.value = mutableListOf()
             }
         }
+    }
+
+    fun setPetDetails(petIndex:Int){
+        val item = _petsList.value?.get(petIndex)
+        petImage.value = item?.image
+        petName.value = item?.name
+        petType.value = item?.type
+        location.value = item?.location
+        phone.value = item?.phone
+        description.value = item?.description
+        id.value=item?.id
     }
 }

@@ -4,4 +4,10 @@
     <item name="android:windowBackground">@color/white</item>
 
 </style>
+    <style name="Circular">
+        <item name="cornerSize">60%</item>
+    </style>
+    <style name="RoundedSquare">
+        <item name="cornerSize">10%</item>
+    </style>
 </resources>
