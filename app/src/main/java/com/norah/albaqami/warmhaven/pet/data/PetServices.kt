@@ -6,7 +6,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
 
-private const val BASE_URL = "https://warm-haven-4058f-default-rtdb.firebaseio.com/data/"
+private const val BASE_URL = "https://warm-haven-4058f-default-rtdb.firebaseio.com/"
 /**
  * Build the Moshi object with Kotlin adapter factory that Retrofit will be using.
  */

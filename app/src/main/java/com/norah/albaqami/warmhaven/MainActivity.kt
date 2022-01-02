@@ -1,5 +1,6 @@
 package com.norah.albaqami.warmhaven
 
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.navigation.NavController
@@ -14,7 +15,10 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+        //Change bottom navigation bar color
+  if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
+    getWindow().setNavigationBarColor(getResources().getColor(R.color.baby_pink))
+   }
 
         // Retrieve NavController from the NavHostFragment
         val navHostFragment = supportFragmentManager
@@ -22,8 +26,7 @@ class MainActivity : AppCompatActivity() {
         navController = navHostFragment.navController
         // Set up the action bar for use with the NavController
         NavigationUI.setupActionBarWithNavController(this, navController)
-        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomnavigationview)
-        bottomNavigationView.setupWithNavController(navController)
+
     }
 
     /**

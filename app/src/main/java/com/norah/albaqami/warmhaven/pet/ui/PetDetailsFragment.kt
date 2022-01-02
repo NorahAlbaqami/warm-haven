@@ -1,15 +1,21 @@
 package com.norah.albaqami.warmhaven.pet.ui
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import com.norah.albaqami.warmhaven.R
+import com.norah.albaqami.warmhaven.databinding.FragmentPetDetailsBinding
+import com.norah.albaqami.warmhaven.databinding.FragmentPetsListBinding
+import com.norah.albaqami.warmhaven.pet.ui.logic.PetViewModel
 
 
 class PetDetailsFragment : Fragment() {
-
+    private lateinit var binding: FragmentPetDetailsBinding
+    private val viewModel: PetViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,8 +27,19 @@ class PetDetailsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_pet_details, container, false)
+        binding = FragmentPetDetailsBinding.inflate(inflater, container, false)
+        binding.viewModel = viewModel
+        binding.lifecycleOwner = this
+
+        return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        arguments.let {
+            viewModel.setPetDetails(it?.getInt("petIndex")!!)
+            Log.d("meme", "onCreateView:${viewModel.setPetDetails(it?.getInt("petIndex")!!)} ")
+        }
+    }
 
 }

@@ -3,23 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
+    android:label="Details"
     app:startDestination="@id/homeScreenFragment">
 
     <fragment
         android:id="@+id/homeScreenFragment"
         android:name="com.norah.albaqami.warmhaven.HomeScreenFragment"
         android:label="Home"
-        tools:layout="@layout/fragment_home_screen" >
+        tools:layout="@layout/fragment_home_screen">
         <action
             android:id="@+id/action_homeScreenFragment_to_petsListFragment"
             app:destination="@id/petsListFragment" />
     </fragment>
 
-    <fragment
-        android:id="@+id/favoriteFragment"
-        android:name="com.norah.albaqami.warmhaven.favorite.ui.FavoriteFragment"
-        android:label="Favorite"
-        tools:layout="@layout/fragment_favorite" />
+
     <fragment
         android:id="@+id/petsListFragment"
         android:name="com.norah.albaqami.warmhaven.pet.ui.PetsListFragment"
@@ -28,6 +25,9 @@
         <action
             android:id="@+id/action_petsListFragment_to_addNewPetFragment"
             app:destination="@id/addNewPetFragment" />
+        <action
+            android:id="@+id/action_petsListFragment_to_petDetailsFragment"
+            app:destination="@id/petDetailsFragment" />
     </fragment>
     <activity
         android:id="@+id/profileActivity"
@@ -36,5 +36,22 @@
     <fragment
         android:id="@+id/addNewPetFragment"
         android:name="com.norah.albaqami.warmhaven.pet.ui.AddNewPetFragment"
-        android:label="Add New Pet" />
+        android:label="Add New Pet" >
+        <action
+            android:id="@+id/action_addNewPetFragment_to_petsListFragment"
+            app:destination="@id/petsListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/petDetailsFragment"
+        android:name="com.norah.albaqami.warmhaven.pet.ui.PetDetailsFragment"
+        android:label="Details"
+         >
+        <action
+            android:id="@+id/action_petDetailsFragment_to_petsListFragment"
+            app:destination="@id/petsListFragment" />
+        <argument
+            android:name="petIndex"
+            app:argType="integer" />
+
+    </fragment>
 </navigation>
