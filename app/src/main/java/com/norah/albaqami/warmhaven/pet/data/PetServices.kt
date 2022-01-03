@@ -2,6 +2,8 @@ package com.norah.albaqami.warmhaven.pet.data
 
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
+import com.squareup.okhttp.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
@@ -10,6 +12,16 @@ private const val BASE_URL = "https://warm-haven-4058f-default-rtdb.firebaseio.c
 /**
  * Build the Moshi object with Kotlin adapter factory that Retrofit will be using.
  */
+fun getlogger():HttpLoggingInterceptor{
+
+    var interceptor =  HttpLoggingInterceptor();
+    interceptor.level=HttpLoggingInterceptor.Level.BODY
+
+return  interceptor
+}
+
+var client = okhttp3.OkHttpClient.Builder().addInterceptor(getlogger()).build();
+
 private val moshi = Moshi.Builder()
     .add(KotlinJsonAdapterFactory())
     .build()
@@ -17,6 +29,7 @@ private val moshi = Moshi.Builder()
  * The Retrofit object with the Moshi converter.
  */
 private val retrofit = Retrofit.Builder()
+    .client(client)
     .addConverterFactory(MoshiConverterFactory.create(moshi))
     .baseUrl(BASE_URL)
     .build()
@@ -30,7 +43,7 @@ interface PetService {
      * HTTP method
      */
     @GET("pet.json")
-    suspend fun getPets() : List<PetItem>
+    suspend fun getPets() : Map<String,PetItem>
 }
 
 /**

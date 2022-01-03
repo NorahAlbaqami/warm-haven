@@ -1,5 +1,6 @@
 package com.norah.albaqami.warmhaven.pet.ui.logic
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -33,9 +34,14 @@ init {
             _status.value = PetApiStatus.LOADING
             try {
 
-                _petsList.value = PetsApi.retrofitService.getPets()
+          var list=  mutableListOf<PetItem>()
+              PetsApi.retrofitService.getPets().forEach{
+                  list.add(it.value)
+              }
+                _petsList.value=list
                 _status.value = PetApiStatus.DONE
             } catch (e: Exception) {
+                Log.d("TAG", "getPetsList: $e")
                 _status.value = PetApiStatus.ERROR
                 _petsList.value = mutableListOf()
             }

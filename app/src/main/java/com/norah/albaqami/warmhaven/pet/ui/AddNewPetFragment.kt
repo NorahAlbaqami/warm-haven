@@ -7,19 +7,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
-import android.widget.Toast
 import com.google.firebase.database.FirebaseDatabase
 import com.norah.albaqami.warmhaven.R
 import com.norah.albaqami.warmhaven.databinding.FragmentAddNewPetBinding
-import android.content.Context
 import androidx.navigation.Navigation
-import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
+import com.google.firebase.auth.FirebaseAuth
 import com.norah.albaqami.warmhaven.pet.data.PetItem
 
 
 class AddNewPetFragment : Fragment() {
     private lateinit var binding: FragmentAddNewPetBinding
+    val auth = FirebaseAuth.getInstance().currentUser
     val db = FirebaseDatabase.getInstance()
    val  mRef =db.getReference("pet")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,14 +41,13 @@ class AddNewPetFragment : Fragment() {
             intent.type = "image/*"
             startActivityForResult(intent, 1992)
         }
-            binding.btnAdd.setOnClickListener { addNewPet()
+            binding.btnAdd.setOnClickListener {
+                addNewPet()
                 Navigation.findNavController(it).navigate(AddNewPetFragmentDirections.actionAddNewPetFragmentToPetsListFragment())
-
+                
         }
 
     }
-
-
     override fun onResume() {
         super.onResume()
         val pets = resources.getStringArray(R.array.pets)
@@ -60,7 +57,7 @@ class AddNewPetFragment : Fragment() {
 
     override fun onDestroy() {
         super.onDestroy()
-
+       binding == null
     }
     fun addNewPet(){
         val type = binding.autoCompleteTextView.text.toString()
@@ -71,10 +68,13 @@ class AddNewPetFragment : Fragment() {
        val imageLink= binding.linkInput.text.toString()
        if (type.isNotEmpty() && name.isNotEmpty() && location.isNotEmpty() && phone.isNotEmpty() && description.isNotEmpty() && imageLink.isNotEmpty()){
        val id = mRef.push().key
-           var newPet = PetItem(imageLink , phone , name , description , location ,id ,type)
-           mRef.child(id!!).setValue(newPet)
+       val userId = auth?.uid
+           var newPet = PetItem(imageLink , phone , name , description , location ,id ,type , userId)
+           db.getReference("pet/$id").setValue(newPet)
+           //mRef.child(id!!).setValue(newPet)
        }else {
           // Toast.makeText(this,"Make sure to full all fields", Toast.LENGTH_LONG).show()
+           binding.NameContainer.helperText= "Please full this failed"
        }
     }
 }
