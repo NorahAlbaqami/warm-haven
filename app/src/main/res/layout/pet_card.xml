@@ -33,7 +33,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.311"
                 tools:srcCompat="@tools:sample/backgrounds/scenic"
-                app:shapeAppearanceOverlay="@style/Circular"
+                app:shapeAppearanceOverlay="@style/RoundedSquare"
                 app:imageUrl="@{resultItem.image}"
                 />
 

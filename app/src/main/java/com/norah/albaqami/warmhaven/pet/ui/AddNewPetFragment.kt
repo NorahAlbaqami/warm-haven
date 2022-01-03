@@ -41,9 +41,10 @@ class AddNewPetFragment : Fragment() {
             intent.type = "image/*"
             startActivityForResult(intent, 1992)
         }
-            binding.btnAdd.setOnClickListener { addNewPet()
+            binding.btnAdd.setOnClickListener {
+                addNewPet()
                 Navigation.findNavController(it).navigate(AddNewPetFragmentDirections.actionAddNewPetFragmentToPetsListFragment())
-
+                
         }
 
     }
@@ -56,7 +57,7 @@ class AddNewPetFragment : Fragment() {
 
     override fun onDestroy() {
         super.onDestroy()
-
+       binding == null
     }
     fun addNewPet(){
         val type = binding.autoCompleteTextView.text.toString()
@@ -67,12 +68,13 @@ class AddNewPetFragment : Fragment() {
        val imageLink= binding.linkInput.text.toString()
        if (type.isNotEmpty() && name.isNotEmpty() && location.isNotEmpty() && phone.isNotEmpty() && description.isNotEmpty() && imageLink.isNotEmpty()){
        val id = mRef.push().key
-val userId = auth?.uid
+       val userId = auth?.uid
            var newPet = PetItem(imageLink , phone , name , description , location ,id ,type , userId)
            db.getReference("pet/$id").setValue(newPet)
            //mRef.child(id!!).setValue(newPet)
        }else {
           // Toast.makeText(this,"Make sure to full all fields", Toast.LENGTH_LONG).show()
+           binding.NameContainer.helperText= "Please full this failed"
        }
     }
 }
