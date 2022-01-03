@@ -10,26 +10,27 @@ data class Response(
 
 data class PetItem(
 
-	@Json(name="image")
+	@Json(name = "image")
 	val image: String? = null,
 
-	@Json(name="phone")
+	@Json(name = "phone")
 	val phone: String? = null,
 
-	@Json(name="name")
+	@Json(name = "name")
 	val name: String? = null,
 
-	@Json(name="description")
+	@Json(name = "description")
 	val description: String? = null,
 
-	@Json(name="location")
+	@Json(name = "location")
 	val location: String? = null,
 
-	@Json(name="id")
+	@Json(name = "id")
 	val id: String? = null,
 
-	@Json(name="type")
-	val type: String? = null
+	@Json(name = "type")
+	val type: String? = null,
+	val userId: String?
 )
 
 data class Data(
