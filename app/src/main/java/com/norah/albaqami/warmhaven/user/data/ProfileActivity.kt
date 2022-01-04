@@ -2,6 +2,7 @@ package com.norah.albaqami.warmhaven.user.data
 
 import android.content.Context
 import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -21,12 +22,13 @@ class ProfileActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
       binding = DataBindingUtil.setContentView(this, R.layout.activity_profile)
-
+        if(android.os.Build.VERSION.SDK_INT>=Build.VERSION_CODES.LOLLIPOP) {
+            getWindow().setNavigationBarColor(getResources().getColor(R.color.baby_pink))
+        }
         getProfileImage()
-    loadData()
+        loadData()
         binding.savename.setOnClickListener {
             saveData()
-
         }
          getUserEmail()
         getUserNumber()

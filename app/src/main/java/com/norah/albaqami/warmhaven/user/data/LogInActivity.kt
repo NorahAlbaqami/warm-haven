@@ -2,6 +2,7 @@ package com.norah.albaqami.warmhaven.user.data
 
 
 import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -24,6 +25,7 @@ class LogInActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_log_in)
         loginOptions()
+
     }
    private fun loginOptions(){
         val providers = arrayListOf<AuthUI.IdpConfig>(

@@ -16,8 +16,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         //Change bottom navigation bar color
-  if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
-    getWindow().setNavigationBarColor(getResources().getColor(R.color.baby_pink))
+        if(android.os.Build.VERSION.SDK_INT>=Build.VERSION_CODES.LOLLIPOP) {
+            getWindow().setNavigationBarColor(getResources().getColor(R.color.baby_pink))
    }
 
         // Retrieve NavController from the NavHostFragment

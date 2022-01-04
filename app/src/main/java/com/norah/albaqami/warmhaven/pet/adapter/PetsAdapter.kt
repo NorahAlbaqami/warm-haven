@@ -48,11 +48,11 @@ class PetsAdapter : ListAdapter<PetItem, PetsAdapter.PetViewHolder>(DiffCallback
      */
     override fun onBindViewHolder(holder: PetViewHolder, position: Int) {
         val petPhoto = getItem(position)
+        petPhoto.id
         holder.bind(petPhoto)
         holder.binding.PetCard.setOnClickListener {
-            val action = PetsListFragmentDirections.actionPetsListFragmentToPetDetailsFragment( petIndex = position)
+            val action = PetsListFragmentDirections.actionPetsListFragmentToPetDetailsFragment( petId = petPhoto.id.toString())
             holder.itemView.findNavController().navigate(action)
-         //   Log.d("h", "onBindViewHolder:$action ")
         }
     }
 }
