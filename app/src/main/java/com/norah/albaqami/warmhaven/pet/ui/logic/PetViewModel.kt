@@ -41,7 +41,7 @@ init {
                 _petsList.value=list
                 _status.value = PetApiStatus.DONE
             } catch (e: Exception) {
-                Log.d("TAG", "getPetsList: $e")
+             //   Log.d("TAG", "getPetsList: $e")
                 _status.value = PetApiStatus.ERROR
                 _petsList.value = mutableListOf()
             }
