@@ -50,8 +50,8 @@
             android:id="@+id/action_petDetailsFragment_to_petsListFragment"
             app:destination="@id/petsListFragment" />
         <argument
-            android:name="petIndex"
-            app:argType="integer" />
+            android:name="petId"
+            app:argType="string" />
 
     </fragment>
 </navigation>

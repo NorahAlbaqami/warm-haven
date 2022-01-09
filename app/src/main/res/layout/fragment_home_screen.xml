@@ -69,21 +69,22 @@
             android:id="@+id/pets"
             android:layout_width="155dp"
             android:layout_height="169dp"
-            android:background="@color/teal_200"
+            android:background="@color/white"
+            android:backgroundTint="#FFFFFF"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.062"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/animation"
             app:layout_constraintVertical_bias="0.51"
-            app:srcCompat="@drawable/petcare"
-            app:shapeAppearanceOverlay="@style/RoundedSquare"/>
+            app:shapeAppearanceOverlay="@style/RoundedSquare"
+            app:srcCompat="@drawable/petcare" />
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/announce_nav"
             android:layout_width="155dp"
             android:layout_height="169dp"
-            android:background="@color/teal_200"
+
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.51"

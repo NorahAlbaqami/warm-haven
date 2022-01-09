@@ -12,6 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".pet.ui.AddNewPetFragment">
+        <!--region $pickPet -->
         <ImageView
             android:id="@+id/pet_pic"
             android:layout_width="168dp"
@@ -25,6 +26,19 @@
             android:src="@drawable/image_placeholder"
             />
 
+        <ImageButton
+            android:id="@+id/upload_pet_image"
+            android:layout_width="40dp"
+            android:layout_height="43dp"
+            android:backgroundTint="#00FFFFFF"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.567"
+            app:layout_constraintStart_toEndOf="@+id/select_pet_image"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.217"
+            app:srcCompat="@drawable/check" />
+
         <androidx.constraintlayout.utils.widget.ImageFilterView
             android:id="@+id/select_pet_image"
             android:layout_width="35dp"
@@ -36,7 +50,8 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.214"
             app:srcCompat="@drawable/petpic" />
-
+        <!--endregion-->
+        <!--region $Type -->
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/type"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
@@ -44,7 +59,6 @@
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:hint="Choice Pet Type"
-
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/pet_pic"
@@ -59,9 +73,8 @@
                 android:padding="16dp"
                 android:text="Cat" />
         </com.google.android.material.textfield.TextInputLayout>
-
-
-
+        <!--endregion-->
+        <!--region $Name -->
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/NameContainer"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
@@ -74,7 +87,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/type">
-
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/name_input"
             android:layout_width="match_parent"
@@ -83,6 +95,8 @@
             android:inputType="text"
             android:hint="Pet Name"/>
         </com.google.android.material.textfield.TextInputLayout>
+        <!--endregion-->
+        <!--region $location -->
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/location_container"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
@@ -95,7 +109,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/NameContainer">
-
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/location_input"
                 android:layout_width="match_parent"
@@ -104,6 +117,8 @@
                 android:inputType="text"
                 android:hint="Location"/>
         </com.google.android.material.textfield.TextInputLayout>
+        <!--endregion-->
+        <!--region $phone -->
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/phone_container"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
@@ -125,6 +140,8 @@
                 android:inputType="number"
                 android:hint="Phone Number"/>
         </com.google.android.material.textfield.TextInputLayout>
+        <!--endregion-->
+        <!--region $description -->
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/description_container"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
@@ -145,6 +162,8 @@
                 android:inputType="text"
                 android:hint="Description"/>
         </com.google.android.material.textfield.TextInputLayout>
+        <!--endregion-->
+        <!--region $image_link_container -->
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/image_link_container"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
@@ -165,6 +184,9 @@
                 android:inputType="text"
                 android:hint="image link"/>
         </com.google.android.material.textfield.TextInputLayout>
+        <!--endregion-->
+        <!--region $btn_add -->
+
         <Button
             android:id="@+id/btn_add"
             android:layout_width="wrap_content"
@@ -175,6 +197,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/image_link_container"
             />
+        <!--endregion-->
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
