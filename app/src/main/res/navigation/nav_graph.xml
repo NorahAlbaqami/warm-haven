@@ -14,6 +14,9 @@
         <action
             android:id="@+id/action_homeScreenFragment_to_petsListFragment"
             app:destination="@id/petsListFragment" />
+        <action
+            android:id="@+id/action_homeScreenFragment_to_announcementListFragment"
+            app:destination="@id/announcementListFragment" />
     </fragment>
 
 
@@ -54,4 +57,9 @@
             app:argType="string" />
 
     </fragment>
+    <fragment
+        android:id="@+id/announcementListFragment"
+        android:name="com.norah.albaqami.warmhaven.announcement.ui.AnnouncementListFragment"
+        android:label="fragment_announcement_list"
+        tools:layout="@layout/fragment_announcement_list" />
 </navigation>

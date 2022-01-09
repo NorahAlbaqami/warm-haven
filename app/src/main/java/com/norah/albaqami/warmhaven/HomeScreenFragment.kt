@@ -45,6 +45,9 @@ class HomeScreenFragment : Fragment() {
      binding.pets.setOnClickListener { view :View ->
          Navigation.findNavController(view).navigate(HomeScreenFragmentDirections.actionHomeScreenFragmentToPetsListFragment())
      }
+        binding.announceNav.setOnClickListener { view: View ->
+            Navigation.findNavController(view).navigate(HomeScreenFragmentDirections.actionHomeScreenFragmentToAnnouncementListFragment())
+        }
     }
 
 }
