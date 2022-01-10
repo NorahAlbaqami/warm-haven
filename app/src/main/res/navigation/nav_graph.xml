@@ -61,5 +61,18 @@
         android:id="@+id/announcementListFragment"
         android:name="com.norah.albaqami.warmhaven.announcement.ui.AnnouncementListFragment"
         android:label="fragment_announcement_list"
-        tools:layout="@layout/fragment_announcement_list" />
+        tools:layout="@layout/fragment_announcement_list" >
+        <action
+            android:id="@+id/action_announcementListFragment_to_addAnnouncementFragment"
+            app:destination="@id/addAnnouncementFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addAnnouncementFragment"
+        android:name="com.norah.albaqami.warmhaven.announcement.ui.AddAnnouncementFragment"
+        android:label="fragment_add_announcement"
+        tools:layout="@layout/fragment_add_announcement" >
+        <action
+            android:id="@+id/action_addAnnouncementFragment_to_announcementListFragment"
+            app:destination="@id/announcementListFragment" />
+    </fragment>
 </navigation>

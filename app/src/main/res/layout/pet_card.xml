@@ -5,7 +5,7 @@
 <data>
     <variable
         name="resultItem"
-        type="com.norah.albaqami.warmhaven.pet.data.PetItem" />
+        type="com.norah.albaqami.warmhaven.network.PetItem" />
 </data>
 
     <com.google.android.material.card.MaterialCardView

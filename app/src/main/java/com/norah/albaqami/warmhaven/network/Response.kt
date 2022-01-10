@@ -1,12 +1,7 @@
-package com.norah.albaqami.warmhaven.pet.data
+package com.norah.albaqami.warmhaven.network
 
 import com.squareup.moshi.Json
 
-data class Response(
-
-	@Json(name="data")
-	val data: Data? = null
-)
 
 data class PetItem(
 
@@ -32,9 +27,10 @@ data class PetItem(
 	val type: String? = null,
 	val userId: String?
 )
+data class AnnouncementItem(val id: String? = null,
+							val userId: String? ,
+							val description: String? = null,
+							val location: String? = null,
+							val image: String? = null,
+							val phone: String? = null)
 
-data class Data(
-
-	@Json(name="pet")
-	val pet: List<PetItem?>? = null
-)
