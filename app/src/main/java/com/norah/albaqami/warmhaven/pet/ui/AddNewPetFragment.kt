@@ -11,13 +11,12 @@ import android.widget.ArrayAdapter
 import com.google.firebase.database.FirebaseDatabase
 import com.norah.albaqami.warmhaven.R
 import com.norah.albaqami.warmhaven.databinding.FragmentAddNewPetBinding
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
-import com.norah.albaqami.warmhaven.pet.data.PetItem
+import com.norah.albaqami.warmhaven.network.PetItem
 
 
 class AddNewPetFragment : Fragment() {

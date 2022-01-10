@@ -1,6 +1,5 @@
 package com.norah.albaqami.warmhaven.pet.adapter
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.findNavController
@@ -8,7 +7,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.norah.albaqami.warmhaven.databinding.PetCardBinding
-import com.norah.albaqami.warmhaven.pet.data.PetItem
+import com.norah.albaqami.warmhaven.network.PetItem
 import com.norah.albaqami.warmhaven.pet.ui.PetsListFragmentDirections
 
 class PetsAdapter : ListAdapter<PetItem, PetsAdapter.PetViewHolder>(DiffCallback) {

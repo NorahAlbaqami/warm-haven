@@ -1,15 +1,16 @@
-package com.norah.albaqami.warmhaven.pet.binding
+package com.norah.albaqami.warmhaven.binding
 
-import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.norah.albaqami.warmhaven.R
+import com.norah.albaqami.warmhaven.announcement.adapter.AnnouncementAdapter
+import com.norah.albaqami.warmhaven.network.AnnouncementItem
 import com.norah.albaqami.warmhaven.pet.adapter.PetsAdapter
-import com.norah.albaqami.warmhaven.pet.data.PetItem
-import com.norah.albaqami.warmhaven.pet.ui.logic.PetApiStatus
+import com.norah.albaqami.warmhaven.network.PetItem
+import com.norah.albaqami.warmhaven.pet.ui.logic.ApiStatus
 
 @BindingAdapter("imageUrl")
 fun bindImage(imgView: ImageView, imgUrl: String?) {
@@ -20,31 +21,42 @@ fun bindImage(imgView: ImageView, imgUrl: String?) {
             .placeholder(R.drawable.loading_animation)
             .error(R.drawable.ic_broken_image)
             .into(imgView)
-        Log.d("nana", "bindImage: ${imgUrl}")
+       // Log.d("nana", "bindImage: ${imgUrl}")
     }
 }
+
 @BindingAdapter("listData")
 fun bindRecyclerView(recyclerView: RecyclerView, data: List<PetItem>?){
     if(recyclerView.adapter == null){
         recyclerView.adapter = PetsAdapter()
     }
-
     val adapter = recyclerView.adapter as PetsAdapter
     adapter.submitList(data)
 }
+
+@JvmName("bindRecyclerView1")
+@BindingAdapter("announcementData")
+fun bindRecyclerView(recyclerView: RecyclerView, data: List<AnnouncementItem>?){
+    if(recyclerView.adapter == null){
+        recyclerView.adapter = AnnouncementAdapter()
+    }
+    val AnnouncementAdapter = recyclerView.adapter as AnnouncementAdapter
+    AnnouncementAdapter.submitList(data)
+}
+
 @BindingAdapter("apiStatus")
-fun ImageView.bindStatus(status: PetApiStatus){
+fun ImageView.bindStatus(status: ApiStatus){
     when (status){
-        PetApiStatus.LOADING -> {
+        ApiStatus.LOADING -> {
             this.visibility = View.VISIBLE
             this.setImageResource(R.drawable.loading_animation)
         }
-        PetApiStatus.ERROR -> {
+        ApiStatus.ERROR -> {
             this.visibility = View.VISIBLE
             this.setImageResource(R.drawable.ic_connection_error)
         }
 
-        PetApiStatus.DONE -> {
+        ApiStatus.DONE -> {
             this.visibility = View.GONE
 
         }
