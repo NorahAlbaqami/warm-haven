@@ -54,7 +54,7 @@
             app:destination="@id/petsListFragment" />
         <argument
             android:name="petId"
-            app:argType="string" />
+            app:argType="integer" />
 
     </fragment>
     <fragment
