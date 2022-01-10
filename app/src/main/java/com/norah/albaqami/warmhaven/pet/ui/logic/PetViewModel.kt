@@ -47,8 +47,8 @@ init {
         }
     }
 
-    fun setPetDetails(petIndex:Int){
-        val item = _petsList.value?.get(petIndex)
+    fun setPetDetails(petId: Int){
+        val item = _petsList.value?.get(petId)
         petImage.value = item?.image
         petName.value = item?.name
         petType.value = item?.type

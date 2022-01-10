@@ -50,7 +50,7 @@ class PetsAdapter : ListAdapter<PetItem, PetsAdapter.PetViewHolder>(DiffCallback
         petPhoto.id
         holder.bind(petPhoto)
         holder.binding.PetCard.setOnClickListener {
-            val action = PetsListFragmentDirections.actionPetsListFragmentToPetDetailsFragment( petId = petPhoto.id.toString())
+            val action = PetsListFragmentDirections.actionPetsListFragmentToPetDetailsFragment( petId =position )
             holder.itemView.findNavController().navigate(action)
         }
     }

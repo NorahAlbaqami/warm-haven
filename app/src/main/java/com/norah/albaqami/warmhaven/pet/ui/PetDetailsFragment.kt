@@ -7,9 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
-import com.norah.albaqami.warmhaven.R
 import com.norah.albaqami.warmhaven.databinding.FragmentPetDetailsBinding
-import com.norah.albaqami.warmhaven.databinding.FragmentPetsListBinding
 import com.norah.albaqami.warmhaven.pet.ui.logic.PetViewModel
 
 
@@ -37,7 +35,7 @@ class PetDetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         arguments.let {
-            viewModel.setPetDetails(it?.getInt("petIndex")!!)
+            viewModel.setPetDetails(it?.getInt("petId")!!)
             Log.d("meme", "onCreateView:${viewModel.setPetDetails(it?.getInt("petIndex")!!)} ")
         }
     }
