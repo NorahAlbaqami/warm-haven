@@ -1,7 +1,9 @@
 package com.norah.albaqami.warmhaven.pet.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
@@ -52,6 +54,10 @@ class PetsAdapter : ListAdapter<PetItem, PetsAdapter.PetViewHolder>(DiffCallback
         holder.binding.PetCard.setOnClickListener {
             val action = PetsListFragmentDirections.actionPetsListFragmentToPetDetailsFragment( petId =position )
             holder.itemView.findNavController().navigate(action)
+          //  Toast.makeText(this,)
+
+            Log.e("TAG", "onBindViewHolder: ${petPhoto.id}", )
+//            Toast.makeText(context, "", Toast.LENGTH_SHORT).show()
         }
     }
 }
