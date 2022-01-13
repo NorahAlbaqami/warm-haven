@@ -52,7 +52,7 @@ class PetsAdapter : ListAdapter<PetItem, PetsAdapter.PetViewHolder>(DiffCallback
         petPhoto.id
         holder.bind(petPhoto)
         holder.binding.PetCard.setOnClickListener {
-            val action = PetsListFragmentDirections.actionPetsListFragmentToPetDetailsFragment( petId =position )
+            val action = PetsListFragmentDirections.actionPetsListFragmentToPetDetailsFragment( petId = petPhoto.id.toString() )
             holder.itemView.findNavController().navigate(action)
           //  Toast.makeText(this,)
 

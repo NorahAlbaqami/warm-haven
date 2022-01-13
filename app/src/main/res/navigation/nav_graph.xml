@@ -54,7 +54,7 @@
             app:destination="@id/petsListFragment" />
         <argument
             android:name="petId"
-            app:argType="integer" />
+            app:argType="string" />
 
     </fragment>
     <fragment
@@ -74,5 +74,14 @@
         <action
             android:id="@+id/action_addAnnouncementFragment_to_announcementListFragment"
             app:destination="@id/announcementListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/userPetsFragment"
+        android:name="com.norah.albaqami.warmhaven.user.ui.UserPetsFragment"
+        android:label="fragment_user_pets"
+        tools:layout="@layout/fragment_user_pets" >
+        <action
+            android:id="@+id/action_userPetsFragment_to_profileActivity"
+            app:destination="@id/profileActivity" />
     </fragment>
 </navigation>

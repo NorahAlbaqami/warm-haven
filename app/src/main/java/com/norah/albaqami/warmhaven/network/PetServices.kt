@@ -8,6 +8,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 private const val BASE_URL = "https://warm-haven-4058f-default-rtdb.firebaseio.com/"
@@ -46,6 +47,8 @@ interface NetworkService {
     suspend fun getItemById(@Query("id") petId: String) : Map<String, PetItem>
     @GET("announcement.json")
     suspend fun getAnnouncements() : Map<String, AnnouncementItem>
+    @GET("pet/{userId}.json")
+    suspend fun getUserPets(@Path("{userId}")id : String) : List<PetItem>
 }
 
 /**

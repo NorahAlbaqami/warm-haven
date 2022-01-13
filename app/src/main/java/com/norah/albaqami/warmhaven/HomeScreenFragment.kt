@@ -48,16 +48,7 @@ class HomeScreenFragment : Fragment() {
             }
         }
 
-        val db = FirebaseDatabase.getInstance()
-        val mRef = db.getReference("pet").child("-MsV0gYGSM7ARKJOtvAG")
-        Log.e("TAG", "onViewCreated: $mRef", )
-        mRef.get().addOnCompleteListener { DataSnapshot1->
 
-            Log.e("TAG", "onViewCreated: result ${DataSnapshot1.result.value}", )
-            Log.e("TAG", "onViewCreated:  DataSnapshot1 ${DataSnapshot1}", )
-
-
-        }
      binding.pets.setOnClickListener { view :View ->
          Navigation.findNavController(view).navigate(HomeScreenFragmentDirections.actionHomeScreenFragmentToPetsListFragment())
      }
