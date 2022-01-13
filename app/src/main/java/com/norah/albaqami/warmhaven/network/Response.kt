@@ -25,7 +25,7 @@ data class PetItem(
 
 	@Json(name = "type")
 	val type: String? = null,
-	val userId: String?
+	val userId: String?=null
 )
 data class AnnouncementItem(val id: String? = null,
 							val userId: String? ,

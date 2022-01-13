@@ -12,6 +12,7 @@ import com.norah.albaqami.warmhaven.pet.ui.logic.ApiStatus
 import kotlinx.coroutines.launch
 
 class UserPetsViewModel : ViewModel()  {
+
     val auth = FirebaseAuth.getInstance().currentUser
     var userId = auth?.uid.toString()
     private val _status = MutableLiveData<ApiStatus>()
@@ -21,13 +22,17 @@ class UserPetsViewModel : ViewModel()  {
     val petList : LiveData<List<PetItem?>> = _petList
 
     init {
-        getUserPets()
+        getUserPets(userId)
     }
-    fun getUserPets(){
+    fun getUserPets(userId:String){
         viewModelScope.launch {
             _status.value = ApiStatus.LOADING
             try {
-                _petList.value= Api.retrofitService.getUserPets(userId)
+                var list=  mutableListOf<PetItem>()
+                Api.retrofitService.getPets().forEach{
+                    list.add(it.value)
+                }
+             _petList.value=   list.filter { it.userId== userId}
                 Log.d("TAG", "getUserPets:${_petList.value} ")
             }catch (e: Exception){
 

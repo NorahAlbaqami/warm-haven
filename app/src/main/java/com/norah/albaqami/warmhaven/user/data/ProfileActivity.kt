@@ -5,11 +5,14 @@ import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.Navigation
 import com.bumptech.glide.Glide
 import com.firebase.ui.auth.AuthUI
 import com.google.firebase.auth.FirebaseAuth
+import com.norah.albaqami.warmhaven.HomeScreenFragmentDirections
 import com.norah.albaqami.warmhaven.R
 import com.norah.albaqami.warmhaven.databinding.ActivityProfileBinding
 
@@ -41,7 +44,10 @@ class ProfileActivity : AppCompatActivity() {
             }
 
         }
-      binding.userpets.setOnClickListener {  }
+      binding.userpets.setOnClickListener {
+//              view: View ->
+//          Navigation.findNavController(view).navigate(ProfileActivityDirections.actionProfileActivityToUserPetsFragment())
+      }
     }
     fun getProfileImage(){
        Glide.with(this)

@@ -48,7 +48,7 @@ interface NetworkService {
     @GET("announcement.json")
     suspend fun getAnnouncements() : Map<String, AnnouncementItem>
     @GET("pet/{userId}.json")
-    suspend fun getUserPets(@Path("{userId}")id : String) : List<PetItem>
+    suspend fun getUserPets(@Path("userId")id : String) : List<PetItem>
 }
 
 /**

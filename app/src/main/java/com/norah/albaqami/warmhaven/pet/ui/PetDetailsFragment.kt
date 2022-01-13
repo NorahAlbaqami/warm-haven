@@ -9,24 +9,27 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.viewModels
+import com.bumptech.glide.Glide
 import com.google.firebase.database.FirebaseDatabase
+import com.norah.albaqami.warmhaven.binding.bindImage
 import com.norah.albaqami.warmhaven.databinding.FragmentPetDetailsBinding
+import com.norah.albaqami.warmhaven.network.PetItem
 import com.norah.albaqami.warmhaven.pet.ui.logic.PetViewModel
 
 
 class PetDetailsFragment : Fragment() {
-    private var _binding : FragmentPetDetailsBinding? = null
-    private val binding get() = _binding
+    private var _binding: FragmentPetDetailsBinding? = null
+    private val binding get() = _binding!!
     private val viewModel: PetViewModel by viewModels()
-    //lateinit var a : String
+    lateinit var id: String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        arguments.let {
-////            viewModel.setPetDetails(it?.getInt("petId")!!)
-////            Log.d("meme", "onCreateView:${viewModel.setPetDetails(it?.getInt("petIndex")!!)} ")
-//            a = it?.getString("petId").toString()
-//
-//        }
+        arguments.let {
+//            viewModel.setPetDetails(it?.getInt("petId")!!)
+//            Log.d("meme", "onCreateView:${viewModel.setPetDetails(it?.getInt("petIndex")!!)} ")
+            id = it?.getString("petId").toString()
+
+        }
     }
 
     override fun onCreateView(
@@ -45,21 +48,26 @@ class PetDetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //   getD(a)
+        getD(id)
     }
-}
-//    private fun getD(arg : String) {
-//        var x = PetItem("")
-//        Log.e("TAG", "onViewCreated: $arg", )
-//        val db = FirebaseDatabase.getInstance()
-//        val mRef = db.getReference("pet").child(arg)
-//        Log.e("TAG", "onViewCreated: $mRef", )
-//        mRef.get().addOnCompleteListener { DataSnapshot1->
+
+    private fun getD(arg: String) {
+
+
+        val db = FirebaseDatabase.getInstance()
+        val mRef = db.getReference("pet").child(arg)
+        Log.e("TAG", "onViewCreated: $mRef")
+        mRef.get().addOnCompleteListener { DataSnapshot1 ->
+            val petdetails = DataSnapshot1.result.getValue(PetItem::class.java)
+            binding.petDescription.text = petdetails?.description.toString() ?: ""
+            bindImage(binding.petPictureDetail,petdetails?.image)
+            binding.executePendingBindings()
 //           var e = (DataSnapshot1.result.value)
 //               toObject(PetItem::class.java)
-//
-//            Log.e("tata", "onViewCreated: result ${DataSnapshot1.result.value}", )
-//            Log.e("tata", "onViewCreated:  DataSnapshot1 ${DataSnapshot1}", )
-//    }
 
-//}
+            Log.e("tata", "onViewCreated: result ${petdetails}")
+            Log.e("tata", "onViewCreated:  DataSnapshot1 ${petdetails}")
+        }
+
+    }
+}

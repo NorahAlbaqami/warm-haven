@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
@@ -16,6 +17,7 @@ import com.google.firebase.ktx.Firebase
 import com.norah.albaqami.warmhaven.databinding.FragmentHomeScreenBinding
 import com.norah.albaqami.warmhaven.user.data.LogInActivity
 import com.norah.albaqami.warmhaven.user.data.ProfileActivity
+import com.norah.albaqami.warmhaven.user.ui.UserPetsViewModel
 
 
 class HomeScreenFragment : Fragment() {
@@ -26,7 +28,7 @@ class HomeScreenFragment : Fragment() {
         super.onCreate(savedInstanceState)
 
     }
-
+    val userVieModel:UserPetsViewModel by viewModels()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -47,7 +49,7 @@ class HomeScreenFragment : Fragment() {
                 getActivity()?.startActivity(intent)
             }
         }
-
+userVieModel.getUserPets(FirebaseAuth.getInstance().uid?:"")
 
      binding.pets.setOnClickListener { view :View ->
          Navigation.findNavController(view).navigate(HomeScreenFragmentDirections.actionHomeScreenFragmentToPetsListFragment())
