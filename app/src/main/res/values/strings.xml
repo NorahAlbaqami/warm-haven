@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Warm Haven</string>
     <string name="warm_haven_user">Warm Haven User</string>
-    <string name="name">name</string>
+    <string name="name">Name</string>
     <string name="logout">Logout</string>
     <string name="my_pets">My Pets</string>
     <string name="my_announcements">my announcements</string>
@@ -24,6 +24,8 @@
         <item>Hamster</item>
         <item>Bird</item>
     </string-array>
-    <!-- TODO: Remove or change this placeholder text -->
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="contact_with_the_owner">Contact with the owner</string>
+
 </resources>
