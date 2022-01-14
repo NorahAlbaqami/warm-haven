@@ -15,6 +15,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.norah.albaqami.warmhaven.HomeScreenFragmentDirections
 import com.norah.albaqami.warmhaven.R
 import com.norah.albaqami.warmhaven.databinding.ActivityProfileBinding
+import com.norah.albaqami.warmhaven.user.ui.UserPetsActivity
 
 
 class ProfileActivity : AppCompatActivity() {
@@ -25,7 +26,7 @@ class ProfileActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
       binding = DataBindingUtil.setContentView(this, R.layout.activity_profile)
-        if(android.os.Build.VERSION.SDK_INT>=Build.VERSION_CODES.LOLLIPOP) {
+        if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.LOLLIPOP) {
             getWindow().setNavigationBarColor(getResources().getColor(R.color.baby_pink))
         }
         getProfileImage()
@@ -45,8 +46,8 @@ class ProfileActivity : AppCompatActivity() {
 
         }
       binding.userpets.setOnClickListener {
-//              view: View ->
-//          Navigation.findNavController(view).navigate(ProfileActivityDirections.actionProfileActivityToUserPetsFragment())
+      val intent = Intent(this,UserPetsActivity::class.java)
+          startActivity(intent)
       }
     }
     fun getProfileImage(){

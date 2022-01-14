@@ -32,7 +32,7 @@ class UserPetsViewModel : ViewModel()  {
                 Api.retrofitService.getPets().forEach{
                     list.add(it.value)
                 }
-             _petList.value=   list.filter { it.userId== userId}
+             _petList.value =   list.filter { it.userId== userId}
                 Log.d("TAG", "getUserPets:${_petList.value} ")
             }catch (e: Exception){
 

@@ -60,6 +60,10 @@ fun ImageView.bindStatus(status: ApiStatus){
             this.visibility = View.GONE
 
         }
+        ApiStatus.EMPTY -> {
+            this.visibility = View.VISIBLE
+            this.setImageResource(R.drawable.empty)
+        }
     }
 
 
