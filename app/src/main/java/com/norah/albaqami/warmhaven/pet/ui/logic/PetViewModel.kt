@@ -18,13 +18,6 @@ class PetViewModel : ViewModel() {
     private val _petsList = MutableLiveData<List<PetItem?>>()
     val petsList: LiveData<List<PetItem?>> = _petsList
 
-    val petImage = MutableLiveData<String>()
-    val petName = MutableLiveData<String>()
-    val petType = MutableLiveData<String>()
-    val location = MutableLiveData<String>()
-    val phone = MutableLiveData<String>()
-    val description = MutableLiveData<String>()
-    val id = MutableLiveData<String>()
 
     init {
         getPetsList()

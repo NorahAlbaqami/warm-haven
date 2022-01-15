@@ -65,30 +65,18 @@ class PetDetailsFragment : Fragment() {
             binding.petLocation.text = petdetails?.location.toString()
             binding.petNameDetail.text = petdetails?.name.toString()
             binding.callBtn.setOnClickListener {
+
                 var phoneNumber = petdetails?.phone.toString().trim()
-                if(ActivityCompat.checkSelfPermission(
-                        requireContext(),
-                        android.Manifest.permission.CALL_PHONE
-                    ) != PackageManager.PERMISSION_GRANTED
-                ) {
-                    Toast.makeText(
-                        requireContext(),
-                        "Please Grand Permission for phone call ",
-                        Toast.LENGTH_SHORT
-                    ).show()
+                if(ActivityCompat.checkSelfPermission(requireContext(), android.Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                    Toast.makeText(requireContext(), "Please Grand Permission for phone call ", Toast.LENGTH_SHORT).show()
                 } else {
-                    val intent =
-                        Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + Uri.encode(phoneNumber)))
+                    val intent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + Uri.encode(phoneNumber)))
                     startActivity(intent)
                 }
 
             }
             binding.executePendingBindings()
-//           var e = (DataSnapshot1.result.value)
-//               toObject(PetItem::class.java)
-//
-//            Log.e("tata", "onViewCreated: result ${petdetails}")
-//            Log.e("tata", "onViewCreated:  DataSnapshot1 ${petdetails}")
+
         }
 
     }

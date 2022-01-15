@@ -2,12 +2,16 @@ package com.norah.albaqami.warmhaven.announcement.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.norah.albaqami.warmhaven.announcement.ui.AnnouncementListFragment
+import com.norah.albaqami.warmhaven.announcement.ui.AnnouncementListFragmentDirections
 import com.norah.albaqami.warmhaven.databinding.AnnouncementCardBinding
 
 import com.norah.albaqami.warmhaven.network.AnnouncementItem
+import com.norah.albaqami.warmhaven.pet.ui.PetsListFragmentDirections
 
 
 class AnnouncementAdapter : ListAdapter<AnnouncementItem, AnnouncementAdapter.AnnouncementViewHolder>(
@@ -42,5 +46,10 @@ class AnnouncementAdapter : ListAdapter<AnnouncementItem, AnnouncementAdapter.An
     override fun onBindViewHolder(holder: AnnouncementViewHolder, position: Int) {
         val petPhoto = getItem(position)
         holder.bind(petPhoto)
+         petPhoto.id.toString()
+        holder.binding.AnnouncementCard.setOnClickListener {
+            val action = AnnouncementListFragmentDirections.actionAnnouncementListFragmentToAnnouncementDetailsFragment( id = petPhoto.id.toString() )
+            holder.itemView.findNavController().navigate(action)
+        }
     }
 }

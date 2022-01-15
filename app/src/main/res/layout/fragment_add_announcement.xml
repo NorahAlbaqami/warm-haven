@@ -54,7 +54,28 @@
             app:layout_constraintVertical_bias="0.214"
             app:srcCompat="@drawable/petpic" />
         <!--endregion-->
-
+        <!--region $title -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/title_container"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_marginHorizontal="20dp"
+            app:helperTextTextColor="@android:color/holo_red_dark"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            app:helperText=""
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/pet_pic">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/title_input"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:lines="1"
+                android:inputType="text"
+                android:hint="@string/title"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <!--endregion-->
 
         <!--region $location -->
         <com.google.android.material.textfield.TextInputLayout
@@ -68,14 +89,14 @@
             app:helperText=""
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/pet_pic">
+            app:layout_constraintTop_toBottomOf="@id/title_container">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/location_input"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:lines="1"
                 android:inputType="text"
-                android:hint="Location"/>
+                android:hint="@string/location"/>
         </com.google.android.material.textfield.TextInputLayout>
         <!--endregion-->
         <!--region $phone -->
@@ -98,7 +119,7 @@
                 android:layout_height="match_parent"
                 android:lines="1"
                 android:inputType="number"
-                android:hint="Phone Number"/>
+                android:hint="@string/phone_number"/>
         </com.google.android.material.textfield.TextInputLayout>
         <!--endregion-->
         <!--region $description -->
@@ -120,7 +141,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:inputType="text"
-                android:hint="Description"/>
+                android:hint="@string/description"/>
         </com.google.android.material.textfield.TextInputLayout>
         <!--endregion-->
         <!--region $image_link_container -->
@@ -142,7 +163,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:inputType="text"
-                android:hint="image link"/>
+                android:hint="@string/image_link"/>
         </com.google.android.material.textfield.TextInputLayout>
         <!--endregion-->
         <!--region $btn_add -->
@@ -152,7 +173,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            android:text="Add"
+            android:text="@string/add"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/image_link_container"

@@ -58,7 +58,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            android:hint="Choice Pet Type"
+            android:hint="@string/choice_pet_type"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/pet_pic"
@@ -93,7 +93,7 @@
             android:layout_height="match_parent"
             android:lines="1"
             android:inputType="text"
-            android:hint="Pet Name"/>
+            android:hint="@string/pet_name"/>
         </com.google.android.material.textfield.TextInputLayout>
         <!--endregion-->
         <!--region $location -->
@@ -115,7 +115,7 @@
                 android:layout_height="match_parent"
                 android:lines="1"
                 android:inputType="text"
-                android:hint="Location"/>
+                android:hint="@string/location"/>
         </com.google.android.material.textfield.TextInputLayout>
         <!--endregion-->
         <!--region $phone -->
@@ -138,7 +138,7 @@
                 android:layout_height="match_parent"
                 android:lines="1"
                 android:inputType="number"
-                android:hint="Phone Number"/>
+                android:hint="@string/phone_number"/>
         </com.google.android.material.textfield.TextInputLayout>
         <!--endregion-->
         <!--region $description -->
@@ -160,7 +160,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:inputType="text"
-                android:hint="Description"/>
+                android:hint="@string/description"/>
         </com.google.android.material.textfield.TextInputLayout>
         <!--endregion-->
         <!--region $image_link_container -->
@@ -182,7 +182,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:inputType="text"
-                android:hint="image link"/>
+                android:hint="@string/image_link"/>
         </com.google.android.material.textfield.TextInputLayout>
         <!--endregion-->
         <!--region $btn_add -->
@@ -192,7 +192,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            android:text="Add"
+            android:text="@string/add"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/image_link_container"

@@ -44,6 +44,7 @@ class AddAnnouncementFragment : Fragment() {
                 && binding.locationContainer.isValid()
                 && binding.phoneContainer.isValid()
                 && binding.imageLinkContainer.isValid()
+                && binding.titleContainer.isValid()
     }
 
     fun TextInputLayout.isValid(): Boolean {
@@ -58,19 +59,21 @@ class AddAnnouncementFragment : Fragment() {
     }
     fun addAnnounce(){
         if (isValid()){
+            val title = binding.titleInput.text.toString()
             val location = binding.locationInput.text.toString()
             val phone = binding.phoneInput.text.toString()
             val description = binding.descriptionInput.text.toString()
             val imageLink = binding.linkInput.text.toString()
             val id = mRef.push().key
             val userId = auth?.uid
-            val newAnnouncement = AnnouncementItem(id, userId, description, location, imageLink, phone)
+            val newAnnouncement = AnnouncementItem(id, userId,title, description, location, imageLink, phone)
             db.getReference("announcement/$id").setValue(newAnnouncement).addOnCompleteListener {
                 if(it.isSuccessful){
                     findNavController().navigate(AddAnnouncementFragmentDirections.actionAddAnnouncementFragmentToAnnouncementListFragment())
                 }
             }
         } else {
+            binding.titleContainer.helperText = "Please full this failed"
             binding.locationContainer.helperText = "Please full this failed"
             binding.phoneContainer.helperText = "Please full this failed"
             binding.descriptionContainer.helperText = "Please full this failed"

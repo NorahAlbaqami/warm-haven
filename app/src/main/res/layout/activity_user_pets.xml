@@ -19,7 +19,7 @@
             android:layout_height="match_parent"
             android:clipToPadding="false"
             android:padding="6dp"
-            app:listData="@{vm.petsList}"
+
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -34,6 +34,7 @@
             android:id="@+id/statusImageView"
             android:layout_width="327dp"
             android:layout_height="308dp"
+
             app:layout_constraintBottom_toBottomOf="@+id/pet_list"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
