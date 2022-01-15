@@ -54,10 +54,10 @@ class PetsAdapter : ListAdapter<PetItem, PetsAdapter.PetViewHolder>(DiffCallback
         holder.binding.PetCard.setOnClickListener {
             val action = PetsListFragmentDirections.actionPetsListFragmentToPetDetailsFragment( petId = petPhoto.id.toString() )
             holder.itemView.findNavController().navigate(action)
-          //  Toast.makeText(this,)
 
-            Log.e("TAG", "onBindViewHolder: ${petPhoto.id}", )
-//            Toast.makeText(context, "", Toast.LENGTH_SHORT).show()
+
+           // Log.e("TAG", "onBindViewHolder: ${petPhoto.id}", )
+
         }
     }
 }

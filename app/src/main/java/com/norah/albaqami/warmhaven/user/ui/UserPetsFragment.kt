@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import com.norah.albaqami.warmhaven.R
 import com.norah.albaqami.warmhaven.databinding.FragmentUserPetsBinding
+import com.norah.albaqami.warmhaven.user.adapter.UserPetsAdapter
 
 
 class UserPetsFragment : Fragment() {
@@ -24,6 +25,8 @@ class UserPetsFragment : Fragment() {
     ): View? {
         binding= FragmentUserPetsBinding.inflate(inflater, container, false)
         // Inflate the layout for this fragment
+        binding.vm=viewModel
+        binding?.petList?.adapter = UserPetsAdapter()
         binding.lifecycleOwner = this
         return binding.root
     }

@@ -1,5 +1,6 @@
 package com.norah.albaqami.warmhaven.binding
 
+import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
@@ -11,6 +12,7 @@ import com.norah.albaqami.warmhaven.network.AnnouncementItem
 import com.norah.albaqami.warmhaven.pet.adapter.PetsAdapter
 import com.norah.albaqami.warmhaven.network.PetItem
 import com.norah.albaqami.warmhaven.pet.ui.logic.ApiStatus
+import com.norah.albaqami.warmhaven.user.adapter.UserPetsAdapter
 
 @BindingAdapter("imageUrl")
 fun bindImage(imgView: ImageView, imgUrl: String?) {
@@ -32,6 +34,18 @@ fun bindRecyclerView(recyclerView: RecyclerView, data: List<PetItem>?){
     }
     val adapter = recyclerView.adapter as PetsAdapter
     adapter.submitList(data)
+//        val userPetsAdapter = recyclerView.adapter as UserPetsAdapter
+//    userPetsAdapter.submitList(data)
+}
+
+@BindingAdapter("userPets")
+ fun bindUserPets(recyclerView: RecyclerView, data: List<PetItem>?){
+    if(recyclerView.adapter == null){
+        recyclerView.adapter = UserPetsAdapter()
+    }
+    val adapter = recyclerView.adapter as UserPetsAdapter
+    adapter.submitList(data)
+    Log.d("TAG", "bindUserPets: ${adapter.submitList(data)}")
 }
 
 @JvmName("bindRecyclerView1")
@@ -59,6 +73,10 @@ fun ImageView.bindStatus(status: ApiStatus){
         ApiStatus.DONE -> {
             this.visibility = View.GONE
 
+        }
+        ApiStatus.EMPTY -> {
+            this.visibility = View.VISIBLE
+            this.setImageResource(R.drawable.empty)
         }
     }
 

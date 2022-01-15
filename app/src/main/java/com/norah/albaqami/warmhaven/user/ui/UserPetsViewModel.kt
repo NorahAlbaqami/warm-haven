@@ -18,8 +18,8 @@ class UserPetsViewModel : ViewModel()  {
     private val _status = MutableLiveData<ApiStatus>()
     val status: LiveData<ApiStatus> = _status
 
-    private val _petList = MutableLiveData<List<PetItem?>>()
-    val petList : LiveData<List<PetItem?>> = _petList
+    private val _petsList = MutableLiveData<List<PetItem?>>()
+    val petsList : LiveData<List<PetItem?>> = _petsList
 
     init {
         getUserPets(userId)
@@ -32,10 +32,15 @@ class UserPetsViewModel : ViewModel()  {
                 Api.retrofitService.getPets().forEach{
                     list.add(it.value)
                 }
-             _petList.value=   list.filter { it.userId== userId}
-                Log.d("TAG", "getUserPets:${_petList.value} ")
+                if(list.isEmpty()) {
+                    _petsList.value = emptyList()
+                    _status.value = ApiStatus.EMPTY
+                }else{
+             _petsList.value =   list.filter { it.userId== userId}
+                Log.d("TAG", "getUserPets:${_petsList.value} ")}
             }catch (e: Exception){
-
+                _status.value = ApiStatus.ERROR
+                _petsList.value = mutableListOf()
             }
         }
 

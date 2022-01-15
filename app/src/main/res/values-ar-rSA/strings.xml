@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ملاذ دافئ</string>
+    <string name="warm_haven_user">مستخدم ملاذ دافئ</string>
+    <string name="name">اﻷسم</string>
+    <string name="logout">تسجيل خروج</string>
+    <string name="my_pets">حيواناتي</string>
+    <string name="my_announcements">اعلاناتي</string>
+    <string name="location">الموقع</string>
+    <string name="phone_number">"رقم الجوال "</string>
+    <string name="description">الوصف</string>
+    <string name="image_link">رابط الصورة</string>
+    <string name="add">اضافة</string>
+    <string name="choice_pet_type">اختر حيوان</string>
+    <string name="cat">قطة</string>
+    <string name="pet_name">اسم الحيوان</string>
+    <string name="pets_in_adoption">حيوانات للتبني</string>
+    <string name="announcement">اعلانات</string>
+    <string name="warm_haven">ملاذ دافئ</string>
+    <string name="contact_with_the_owner">تواصل مع المالك</string>
+    <string name="contact">تواصل مع المعلن</string>
+    <string name="title">العنوان</string>
+    <string name="home">الرئسية</string>
+    <string name="add_new_pet">اضف حيوان جديد</string>
+    <string name="details">التفاصيل</string>
+    <string name="add_announcement">اضف اعلان</string>
+</resources>
