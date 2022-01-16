@@ -1,8 +1,10 @@
 package com.norah.albaqami.warmhaven.pet.ui
 
+import android.app.Activity.RESULT_OK
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -17,6 +19,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import com.norah.albaqami.warmhaven.network.PetItem
+import java.io.IOException
 
 
 class AddNewPetFragment : Fragment() {
@@ -27,8 +30,6 @@ class AddNewPetFragment : Fragment() {
     val db = FirebaseDatabase.getInstance()
     val mRef = db.getReference("pet")
 
-    private val PICK_IMAGE_REQUEST = 71
-    private var filePath: Uri? = null
     private var firebaseStore: FirebaseStorage? = FirebaseStorage.getInstance()
     private var storageReference: StorageReference? = FirebaseStorage.getInstance().reference
 
@@ -63,13 +64,18 @@ class AddNewPetFragment : Fragment() {
     }
 
     private fun uploadImage() {
-        TODO("Not yet implemented")
+
     }
 
     private fun launchGallery() {
-        val intent = Intent(Intent.ACTION_PICK)
+        val intent = Intent()
         intent.type = "image/*"
-        startActivityForResult(intent, PICK_IMAGE_REQUEST)
+        intent.action = Intent.ACTION_GET_CONTENT
+        startActivityForResult(
+            Intent.createChooser(intent, "Select Document to upload"),
+            50
+        )
+
     }
 
     override fun onResume() {
@@ -104,7 +110,21 @@ class AddNewPetFragment : Fragment() {
         super.onDestroy()
         binding == null
     }
-
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == 50 && resultCode == RESULT_OK && data != null && data.data != null) {
+            var FilePathUri = data.data
+            try {
+                val bitmap = MediaStore.Images.Media.getBitmap(
+                    requireActivity().getContentResolver(),
+                    FilePathUri
+                )
+                binding.petPic.setImageBitmap(bitmap)
+            } catch (e: IOException) {
+                e.printStackTrace()
+            }
+        }
+    }
     fun addNewPet() {
         if (isValid()){
         val type = binding.autoCompleteTextView.text.toString()

@@ -18,5 +18,6 @@ class UserPetsActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_user_pets)
         binding.vm=viewModel
         binding?.petList?.adapter = UserPetsAdapter()
+        setContentView(binding.root)
     }
 }
