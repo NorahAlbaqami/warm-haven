@@ -55,7 +55,7 @@
                 app:srcCompat="@drawable/check" />
 
             <ImageView
-                android:id="@+id/imageView2"
+                android:id="@+id/delete_pet"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintBottom_toBottomOf="parent"

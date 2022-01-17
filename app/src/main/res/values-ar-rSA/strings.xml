@@ -24,4 +24,6 @@
     <string name="add_new_pet">اضف حيوان جديد</string>
     <string name="details">التفاصيل</string>
     <string name="add_announcement">اضف اعلان</string>
+    <string name="delete">حذف</string>
+    <string name="Are_you_Sure_to_delete">هل انت واثق من الحذف؟</string>
 </resources>

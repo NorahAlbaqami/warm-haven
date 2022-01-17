@@ -32,6 +32,8 @@
     <string name="add_new_pet">Add New Pet</string>
     <string name="details">Details</string>
     <string name="add_announcement">Add Announcement</string>
+    <string name="delete">Delete</string>
+    <string name = "Are_you_Sure_to_delete">Are you Sure to delete ?"</string>
 
 
 </resources>

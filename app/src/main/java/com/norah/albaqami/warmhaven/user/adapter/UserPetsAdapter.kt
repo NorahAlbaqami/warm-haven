@@ -2,9 +2,14 @@ package com.norah.albaqami.warmhaven.user.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.firebase.database.FirebaseDatabase
+import com.norah.albaqami.warmhaven.R
 import com.norah.albaqami.warmhaven.databinding.UserPetCardBinding
 import com.norah.albaqami.warmhaven.network.PetItem
 
@@ -38,5 +43,27 @@ class UserPetsAdapter : ListAdapter<PetItem,UserPetsAdapter.PetViewHolder>(DiffC
     override fun onBindViewHolder(holder: PetViewHolder, position: Int) {
         val petPhoto = getItem(position)
         holder.bind(petPhoto)
+        petPhoto.id
+        holder.binding.deletePet.setOnClickListener { deletePet(petPhoto.id.toString())
+//            MaterialAlertDialogBuilder(context,position)
+//                .setTitle(R.string.delete)
+//                .setMessage("Are you Sure to delete")
+//                .setCancelable(false)
+//                .setNegativeButton(context.getString(R.string.delete)) { _, _ ->
+//                    deletePet(petPhoto.id.toString())
+//                    notifyDataSetChanged()
+//                }
+//                .show()
+
+        }
+    }
+    fun deletePet(id : String){
+        var db = FirebaseDatabase.getInstance().getReference("pet")
+        db.child(id).removeValue().addOnSuccessListener {
+          //  Toast.makeText(requireContext(), "Deleted Successfully", Toast.LENGTH_SHORT).show()
+        }.addOnFailureListener {
+
+        }
+
     }
 }

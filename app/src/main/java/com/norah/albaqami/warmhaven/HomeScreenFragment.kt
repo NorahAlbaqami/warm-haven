@@ -57,10 +57,6 @@ userVieModel.getUserPets(FirebaseAuth.getInstance().uid?:"")
         binding.announceNav.setOnClickListener { view: View ->
             Navigation.findNavController(view).navigate(HomeScreenFragmentDirections.actionHomeScreenFragmentToAnnouncementListFragment())
         }
-     binding.userpet.setOnClickListener {
-         Navigation.findNavController(it).navigate(HomeScreenFragmentDirections.actionHomeScreenFragmentToUserPetsFragment())
-     }
-
 
 
 

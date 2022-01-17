@@ -4,32 +4,35 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-   <variable
-       name="vm"
-       type="com.norah.albaqami.warmhaven.user.ui.UserPetsViewModel "/>
+
+        <variable
+            name="viewmodel"
+            type="com.norah.albaqami.warmhaven.user.ui.UserPetsViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".user.ui.UserPetsActivity">
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/pet_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:clipToPadding="false"
             android:padding="6dp"
-
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:listitem="@layout/user_pet_card"
             app:spanCount="1"
             tools:itemCount="16"
-            />
+            app:userPets="@{viewmodel.petsList}"
+
+            tools:listitem="@layout/user_pet_card" />
+
         <ImageView
             android:id="@+id/statusImageView"
             android:layout_width="327dp"

@@ -59,6 +59,7 @@ class PetDetailsFragment : Fragment() {
         val mRef = db.getReference("pet").child(arg)
 
         mRef.get().addOnCompleteListener { DataSnapshot1 ->
+            Log.e("TAG", "getDetails: ${DataSnapshot1.result.value}", )
             val petdetails = DataSnapshot1.result.getValue(PetItem::class.java)
             binding.petDescription.text = petdetails?.description.toString()
             bindImage(binding.petPictureDetail, petdetails?.image)

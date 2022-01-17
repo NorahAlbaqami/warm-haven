@@ -10,14 +10,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import com.google.firebase.database.FirebaseDatabase
 import com.norah.albaqami.warmhaven.R
 import com.norah.albaqami.warmhaven.databinding.FragmentAddNewPetBinding
 import androidx.navigation.fragment.findNavController
+import com.google.android.gms.tasks.OnFailureListener
+import com.google.android.gms.tasks.OnSuccessListener
 import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
+import com.norah.albaqami.warmhaven.databinding.FragmentAddAnnouncementBinding
 import com.norah.albaqami.warmhaven.network.PetItem
 import java.io.IOException
 
@@ -29,9 +34,8 @@ class AddNewPetFragment : Fragment() {
     val auth = FirebaseAuth.getInstance().currentUser
     val db = FirebaseDatabase.getInstance()
     val mRef = db.getReference("pet")
+    private var storageReference: StorageReference? = FirebaseStorage.getInstance().reference.child("pet")
 
-    private var firebaseStore: FirebaseStorage? = FirebaseStorage.getInstance()
-    private var storageReference: StorageReference? = FirebaseStorage.getInstance().reference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -114,6 +118,14 @@ class AddNewPetFragment : Fragment() {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == 50 && resultCode == RESULT_OK && data != null && data.data != null) {
             var FilePathUri = data.data
+            var imageName : StorageReference = storageReference!!.child("pet"+FilePathUri!!.getLastPathSegment())
+            imageName.putFile(FilePathUri).addOnSuccessListener ({ taskSnapShot ->
+               imageName.getDownloadUrl().addOnSuccessListener { OnSuccessListener<Uri>{
+
+               } }
+
+            } )
+
             try {
                 val bitmap = MediaStore.Images.Media.getBitmap(
                     requireActivity().getContentResolver(),
@@ -149,4 +161,30 @@ class AddNewPetFragment : Fragment() {
             binding.imageLinkContainer.helperText = "Please full this failed"
         }
     }
+//    fun uploadDataToFirebase(fileUri: Uri?, binding: FragmentAddAnnouncementBinding) {
+//        if (fileUri != null) {
+//
+//            val storageReference2nd = storageReference!!.child(
+//                Storage_Path + System.currentTimeMillis() + "." + GetFileExtension(fileUri)
+//            )
+//            storageReference2nd.putFile(fileUri)
+//                .addOnSuccessListener { taskSnapshot ->
+//                    val addOnSuccessListener =
+//                        taskSnapshot.storage.downloadUrl.addOnSuccessListener {
+//
+//                            val imageUrl = it.toString()
+//                            addNewPet(imageUrl, binding)
+//                        }
+//                }
+//
+//                .addOnFailureListener(OnFailureListener { e ->
+//                    //  Toast.makeText(getApplication(),e.message.toString(),Toast.LENGTH_LONG).show()
+//
+//                })
+//
+//
+//        }
+//
+//
+//    }
 }

@@ -11,12 +11,17 @@ import com.norah.albaqami.warmhaven.pet.adapter.PetsAdapter
 import com.norah.albaqami.warmhaven.user.adapter.UserPetsAdapter
 
 class UserPetsActivity : AppCompatActivity() {
+
     private val viewModel: UserPetsViewModel by viewModels()
     private lateinit var binding: ActivityUserPetsBinding
+
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_user_pets)
-        binding.vm=viewModel
+        binding.viewmodel = viewModel
+        binding.lifecycleOwner = this
         binding?.petList?.adapter = UserPetsAdapter()
         setContentView(binding.root)
     }

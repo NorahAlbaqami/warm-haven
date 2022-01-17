@@ -1,16 +1,26 @@
 package com.norah.albaqami.warmhaven.pet.ui.logic
 
+import android.app.Application
+import android.content.ContentResolver
+import android.net.Uri
+import android.webkit.MimeTypeMap
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
+import com.norah.albaqami.warmhaven.databinding.FragmentAddAnnouncementBinding
 import com.norah.albaqami.warmhaven.network.PetItem
 import com.norah.albaqami.warmhaven.pet.data.Api
 import kotlinx.coroutines.launch
+import com.google.android.gms.tasks.OnFailureListener
+
 
 enum class ApiStatus { LOADING, ERROR, DONE, EMPTY }
 
 class PetViewModel : ViewModel() {
+
 
     private val _status = MutableLiveData<ApiStatus>()
     val status: LiveData<ApiStatus> = _status
@@ -21,6 +31,7 @@ class PetViewModel : ViewModel() {
 
     init {
         getPetsList()
+
     }
 
     private fun getPetsList() {
@@ -47,5 +58,7 @@ class PetViewModel : ViewModel() {
             }
         }
     }
+
+
 
 }

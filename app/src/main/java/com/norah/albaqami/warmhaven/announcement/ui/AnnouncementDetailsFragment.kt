@@ -5,6 +5,7 @@ import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -13,6 +14,7 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ktx.getValue
 import com.norah.albaqami.warmhaven.R
 import com.norah.albaqami.warmhaven.binding.bindImage
 import com.norah.albaqami.warmhaven.databinding.FragmentAnnouncementDetailsBinding
@@ -50,6 +52,9 @@ class AnnouncementDetailsFragment : Fragment() {
         val db = FirebaseDatabase.getInstance()
         val mRef = db.getReference("announcement").child(arg)
         mRef.get().addOnCompleteListener { DataSnapshot1 ->
+
+            Log.e("TAG", "getDetails: ${DataSnapshot1.result.value}", )
+
             val details = DataSnapshot1.result.getValue(AnnouncementItem::class.java)
             binding.titleDetail.text = details?.title.toString()
             bindImage(binding.petPictureDetail, details?.image)

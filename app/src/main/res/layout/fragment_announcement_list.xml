@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-<variable
-    name="annViewModel"
-    type="com.norah.albaqami.warmhaven.announcement.ui.AnnouncementViewModel" />
+
+        <variable
+            name="annViewModel"
+            type="com.norah.albaqami.warmhaven.announcement.ui.AnnouncementViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -20,17 +21,17 @@
             android:layout_height="match_parent"
             android:clipToPadding="false"
             android:padding="6dp"
+            app:announcementData="@{annViewModel.announceList}"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:announcementData="@{annViewModel.announceList}"
-            tools:listitem="@layout/announcement_card"
             app:spanCount="1"
             tools:itemCount="16"
-            />
+            tools:listitem="@layout/announcement_card" />
+
         <ImageView
             android:id="@+id/statusImageView"
             android:layout_width="327dp"
@@ -42,6 +43,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:srcCompat="@tools:sample/avatars" />
+
         <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
             android:id="@+id/add_announcement_btn"
             android:layout_width="wrap_content"
