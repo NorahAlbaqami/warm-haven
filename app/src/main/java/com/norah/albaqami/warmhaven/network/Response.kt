@@ -31,7 +31,7 @@ data class PetItem(
 
 data class AnnouncementItem(
     val id: String? = null,
-    val userId: String?,
+    val userId: String ? = null,
     val title: String? = null,
     val description: String? = null,
     val location: String? = null,

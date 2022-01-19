@@ -2,16 +2,17 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+
     <data>
 
     </data>
-  <ScrollView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".pet.ui.AddNewPetFragment">
+        tools:context=".user.ui.EditUserPetsActivity">
         <!--region $pickPet -->
         <ImageView
             android:id="@+id/pet_pic"
@@ -68,7 +69,7 @@
             android:id="@+id/NameContainer"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
             android:layout_marginHorizontal="20dp"
-             app:helperText=""
+            app:helperText=""
             app:helperTextTextColor="@android:color/holo_red_dark"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -76,13 +77,13 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/type">
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/name_input"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:lines="1"
-            android:inputType="text"
-            android:hint="@string/pet_name"/>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/name_input"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:lines="1"
+                android:inputType="text"
+                android:hint="@string/pet_name"/>
         </com.google.android.material.textfield.TextInputLayout>
         <!--endregion-->
         <!--region $location -->
@@ -156,18 +157,17 @@
         <!--region $btn_add -->
 
         <Button
-            android:id="@+id/btn_add"
+            android:id="@+id/btn_Save"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            android:text="@string/add"
+            android:text="@string/Save"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/description_container"
             />
         <!--endregion-->
 
-
     </androidx.constraintlayout.widget.ConstraintLayout>
-</ScrollView>
+    </ScrollView>
 </layout>

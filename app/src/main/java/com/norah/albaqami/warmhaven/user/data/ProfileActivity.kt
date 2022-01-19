@@ -15,6 +15,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.norah.albaqami.warmhaven.HomeScreenFragmentDirections
 import com.norah.albaqami.warmhaven.R
 import com.norah.albaqami.warmhaven.databinding.ActivityProfileBinding
+import com.norah.albaqami.warmhaven.user.ui.UserAnnouncementActivity
 import com.norah.albaqami.warmhaven.user.ui.UserPetsActivity
 
 
@@ -49,6 +50,10 @@ class ProfileActivity : AppCompatActivity() {
       val intent = Intent(this,UserPetsActivity::class.java)
           startActivity(intent)
       }
+        binding.announce.setOnClickListener {
+            val intent = Intent(this,UserAnnouncementActivity::class.java)
+            startActivity(intent)
+        }
     }
     fun getProfileImage(){
        Glide.with(this)

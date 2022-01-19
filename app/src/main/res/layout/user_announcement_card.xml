@@ -6,7 +6,7 @@
     <data>
         <variable
             name="resultItem"
-            type="com.norah.albaqami.warmhaven.network.PetItem" />
+            type="com.norah.albaqami.warmhaven.network.AnnouncementItem" />
     </data>
 
 
@@ -34,7 +34,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{resultItem.name}"
+                android:text="@{resultItem.title}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.03"

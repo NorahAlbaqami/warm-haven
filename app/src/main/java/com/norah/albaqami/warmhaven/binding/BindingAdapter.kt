@@ -12,6 +12,7 @@ import com.norah.albaqami.warmhaven.network.AnnouncementItem
 import com.norah.albaqami.warmhaven.pet.adapter.PetsAdapter
 import com.norah.albaqami.warmhaven.network.PetItem
 import com.norah.albaqami.warmhaven.pet.ui.logic.ApiStatus
+import com.norah.albaqami.warmhaven.user.adapter.UserAnnouncementAdapter
 import com.norah.albaqami.warmhaven.user.adapter.UserPetsAdapter
 
 @BindingAdapter("imageUrl")
@@ -57,7 +58,14 @@ fun bindRecyclerView(recyclerView: RecyclerView, data: List<AnnouncementItem>?){
     val AnnouncementAdapter = recyclerView.adapter as AnnouncementAdapter
     AnnouncementAdapter.submitList(data)
 }
-
+@BindingAdapter("userAnnouncementData")
+fun bindUserAnnouncement(recyclerView: RecyclerView, data: List<AnnouncementItem>?){
+    if(recyclerView.adapter == null){
+        recyclerView.adapter = UserAnnouncementAdapter()
+    }
+    val UserAnnouncementAdapter = recyclerView.adapter as UserAnnouncementAdapter
+    UserAnnouncementAdapter.submitList(data)
+}
 @BindingAdapter("apiStatus")
 fun ImageView.bindStatus(status: ApiStatus){
     when (status){

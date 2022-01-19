@@ -1,5 +1,6 @@
 package com.norah.albaqami.warmhaven.user.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
@@ -14,8 +15,8 @@ import com.norah.albaqami.warmhaven.databinding.UserPetCardBinding
 import com.norah.albaqami.warmhaven.network.PetItem
 
 
-class UserPetsAdapter : ListAdapter<PetItem,UserPetsAdapter.PetViewHolder>(DiffCallback) {
-    class PetViewHolder( var binding: UserPetCardBinding): RecyclerView.ViewHolder(binding.root) {
+class UserPetsAdapter : ListAdapter<PetItem, UserPetsAdapter.PetViewHolder>(DiffCallback) {
+    class PetViewHolder(var binding: UserPetCardBinding) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(views: PetItem) {
             binding.resultItem = views
@@ -25,6 +26,7 @@ class UserPetsAdapter : ListAdapter<PetItem,UserPetsAdapter.PetViewHolder>(DiffC
             binding.executePendingBindings()
         }
     }
+
     companion object DiffCallback : DiffUtil.ItemCallback<PetItem>() {
         override fun areItemsTheSame(oldItem: PetItem, newItem: PetItem): Boolean {
             return oldItem.id == newItem.id
@@ -34,36 +36,42 @@ class UserPetsAdapter : ListAdapter<PetItem,UserPetsAdapter.PetViewHolder>(DiffC
             return oldItem.image == newItem.image
         }
     }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PetViewHolder {
-        return PetViewHolder (
-                UserPetCardBinding.inflate(LayoutInflater.from(parent.context))
-                )
+        return PetViewHolder(
+            UserPetCardBinding.inflate(LayoutInflater.from(parent.context))
+        )
     }
 
     override fun onBindViewHolder(holder: PetViewHolder, position: Int) {
         val petPhoto = getItem(position)
         holder.bind(petPhoto)
         petPhoto.id
-        holder.binding.deletePet.setOnClickListener { deletePet(petPhoto.id.toString())
-//            MaterialAlertDialogBuilder(context,position)
+        holder.binding.deletePet.setOnClickListener {
+            deletePet(petPhoto.id.toString())
+//            MaterialAlertDialogBuilder(requireContext(),position)
 //                .setTitle(R.string.delete)
-//                .setMessage("Are you Sure to delete")
+//                .setMessage(R.string.Are_you_Sure_to_delete)
 //                .setCancelable(false)
-//                .setNegativeButton(context.getString(R.string.delete)) { _, _ ->
+//                .setNegativeButton(requireContext().getString(R.string.delete)) { _, _ ->
 //                    deletePet(petPhoto.id.toString())
-//                    notifyDataSetChanged()
+
 //                }
 //                .show()
 
         }
     }
-    fun deletePet(id : String){
+
+    fun deletePet(id: String) {
+
         var db = FirebaseDatabase.getInstance().getReference("pet")
         db.child(id).removeValue().addOnSuccessListener {
-          //  Toast.makeText(requireContext(), "Deleted Successfully", Toast.LENGTH_SHORT).show()
+            //  Toast.makeText(requireContext(), "Deleted Successfully", Toast.LENGTH_SHORT).show()
+           // notifyDataSetChanged()
         }.addOnFailureListener {
 
         }
 
+        // Log.e("TAG", "deletePet: end", )
     }
 }

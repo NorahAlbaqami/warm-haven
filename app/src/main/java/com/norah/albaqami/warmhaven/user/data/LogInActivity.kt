@@ -45,9 +45,6 @@ class LogInActivity : AppCompatActivity() {
     }
 
     private fun onSignInResult(result: FirebaseAuthUIAuthenticationResult) {
-
-
-
         val response = result.idpResponse
         if (result.resultCode == RESULT_OK) {
                 val user = FirebaseAuth.getInstance().currentUser
