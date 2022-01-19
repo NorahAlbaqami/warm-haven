@@ -60,7 +60,7 @@
                 android:layout_weight="1"
                 android:inputType="none"
                 android:padding="16dp"
-                android:text="Cat" />
+                android:text="@string/cat" />
         </com.google.android.material.textfield.TextInputLayout>
         <!--endregion-->
         <!--region $Name -->

@@ -30,7 +30,7 @@ class UserPetsViewModel : ViewModel() {
         getUserAnnouncements(userId)
     }
 
-    fun getUserPets(userId: String) {
+    fun getUserPets(userId: String=auth?.uid.toString()) {
         viewModelScope.launch {
             _status.value = ApiStatus.LOADING
             try {
@@ -38,23 +38,21 @@ class UserPetsViewModel : ViewModel() {
                 Api.retrofitService.getPets().forEach {
                     list.add(it.value)
                 }
-                if(list.isEmpty()) {
-                    _petsList.value = emptyList()
-                    _status.value = ApiStatus.EMPTY
-                } else {
                     _petsList.value = list.filter { it.userId == userId }
-                    _status.value = ApiStatus.DONE
-//                Log.d("TAG", "getUserPets:${_petsList.value} ")
-                }
             } catch (e: Exception) {
-                _status.value = ApiStatus.ERROR
-                _petsList.value = mutableListOf()
+                if(e is NullPointerException) {
+                    _status.value = ApiStatus.EMPTY
+                    _petsList.value = mutableListOf()
+                } else {
+                    _status.value = ApiStatus.ERROR
+                    _petsList.value = mutableListOf()
+                }
             }
         }
 
     }
 
-    fun getUserAnnouncements(userId: String) {
+    fun getUserAnnouncements(userId: String=auth?.uid.toString()) {
         viewModelScope.launch {
             _status.value = ApiStatus.LOADING
             try {
@@ -62,17 +60,16 @@ class UserPetsViewModel : ViewModel() {
                 Api.retrofitService.getAnnouncements().forEach {
                     list.add(it.value)
                 }
-                if(list.isEmpty()) {
-                    _announcementsList.value = emptyList()
-                    _status.value = ApiStatus.EMPTY
-                } else {
                     _announcementsList.value = list.filter { it.userId == userId }
                     _status.value = ApiStatus.DONE
-
-                }
             } catch (e: Exception) {
-                _status.value = ApiStatus.ERROR
-                _announcementsList.value = mutableListOf()
+                if(e is NullPointerException){
+                    _status.value=ApiStatus.EMPTY
+                    _announcementsList.value = mutableListOf()
+                }else {
+                    _status.value = ApiStatus.ERROR
+                    _announcementsList.value = mutableListOf()
+                }
             }
         }
 

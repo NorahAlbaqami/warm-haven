@@ -16,6 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WarmHaven">
         <activity
+            android:name=".user.ui.EditUserAnnouncementActivity"
+            android:exported="true" />
+        <activity
             android:name=".user.ui.EditUserPetsActivity"
             android:exported="true" />
         <activity

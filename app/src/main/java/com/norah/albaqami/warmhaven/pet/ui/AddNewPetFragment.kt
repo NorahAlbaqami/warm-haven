@@ -31,7 +31,8 @@ class AddNewPetFragment : Fragment() {
     val auth = FirebaseAuth.getInstance().currentUser
     val db = FirebaseDatabase.getInstance()
     val mRef = db.getReference("pet")
-    private var storageReference: StorageReference? = FirebaseStorage.getInstance().reference.child("pet")
+    private var storageReference: StorageReference? =
+        FirebaseStorage.getInstance().reference.child("pet")
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -52,19 +53,16 @@ class AddNewPetFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.selectPetImage.setOnClickListener {
-              launchGallery()
+            launchGallery()
         }
 
-        binding.uploadPetImage.setOnClickListener {
-            uploadImage()
-        }
+
         binding.btnAdd.setOnClickListener {
             uploadImage()
 
         }
 
     }
-
 
 
     private fun launchGallery() {
@@ -97,10 +95,10 @@ class AddNewPetFragment : Fragment() {
 
     fun TextInputLayout.isValid(): Boolean {
         if(this.editText?.text.toString().isNullOrEmpty()) {
-            this.error=""
+            this.error = ""
             return false
         } else {
-            this.error=null
+            this.error = null
             return true
         }
 
@@ -110,11 +108,12 @@ class AddNewPetFragment : Fragment() {
         super.onDestroy()
         binding == null
     }
-       var FilePathUri:Uri?=null
+
+    var FilePathUri: Uri? = null
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == 50 && resultCode == RESULT_OK && data != null && data.data != null) {
-             FilePathUri = data.data
+        if(requestCode == 50 && resultCode == RESULT_OK && data != null && data.data != null) {
+            FilePathUri = data.data
 
 
             try {
@@ -133,17 +132,17 @@ class AddNewPetFragment : Fragment() {
         var imageName: StorageReference =
             storageReference!!.child("pet" + FilePathUri!!.getLastPathSegment())
 
- val     upload=  imageName.putFile(FilePathUri!!)
-        val urlTask = upload.continueWith{ task ->
-            if (!task.isSuccessful) {
+        val upload = imageName.putFile(FilePathUri!!)
+        val urlTask = upload.continueWith { task ->
+            if(!task.isSuccessful) {
                 task.exception?.let {
                     throw it
                 }
             }
             imageName.downloadUrl
         }.addOnCompleteListener { task ->
-            if (task.isSuccessful) {
-        task.result.addOnCompleteListener {
+            if(task.isSuccessful) {
+                task.result.addOnCompleteListener {
                     addNewPet(it.result.toString())
                 }
 
@@ -155,20 +154,20 @@ class AddNewPetFragment : Fragment() {
 
     }
 
-    fun addNewPet(imageLin:String) {
-        if (isValid()){
-        val type = binding.autoCompleteTextView.text.toString()
-        val name = binding.nameInput.text.toString()
-        val location = binding.locationInput.text.toString()
-        val phone = binding.phoneInput.text.toString()
-        val description = binding.descriptionInput.text.toString()
-        val imageLink = binding.linkInput.text.toString()
-               val id = mRef.push().key
+    fun addNewPet(imageLin: String) {
+        if(isValid()) {
+            val type = binding.autoCompleteTextView.text.toString()
+            val name = binding.nameInput.text.toString()
+            val location = binding.locationInput.text.toString()
+            val phone = binding.phoneInput.text.toString()
+            val description = binding.descriptionInput.text.toString()
+
+            val id = mRef.push().key
             val userId = auth?.uid
             val newPet = PetItem(imageLin, phone, name, description, location, id, type, userId)
             db.getReference("pet/$id").setValue(newPet).addOnCompleteListener {
-                if(it.isSuccessful){
-               findNavController().navigate(AddNewPetFragmentDirections.actionAddNewPetFragmentToPetsListFragment())
+                if(it.isSuccessful) {
+                    findNavController().navigate(AddNewPetFragmentDirections.actionAddNewPetFragmentToPetsListFragment())
                 }
             }
         } else {
@@ -176,7 +175,7 @@ class AddNewPetFragment : Fragment() {
             binding.locationContainer.helperText = "Please full this failed"
             binding.phoneContainer.helperText = "Please full this failed"
             binding.descriptionContainer.helperText = "Please full this failed"
-            binding.imageLinkContainer.helperText = "Please full this failed"
+
         }
     }
 

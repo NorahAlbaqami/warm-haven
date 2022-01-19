@@ -43,19 +43,16 @@ class PetViewModel : ViewModel() {
                 Api.retrofitService.getPets().forEach {
                     list.add(it.value)
                 }
-                if(list.isEmpty()) {
-                    _petsList.value = emptyList()
-                    _status.value = ApiStatus.EMPTY
-                } else {
                     _petsList.value = list
                     _status.value = ApiStatus.DONE
-                }
-
             } catch (e: Exception) {
-                //   Log.d("TAG", "getPetsList: $e")
+                if(e is NullPointerException){
+                    _status.value=ApiStatus.EMPTY
+                    _petsList.value = mutableListOf()
+                }else {
                 _status.value = ApiStatus.ERROR
                 _petsList.value = mutableListOf()
-            }
+            }}
         }
     }
 

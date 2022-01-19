@@ -41,9 +41,7 @@ fun bindRecyclerView(recyclerView: RecyclerView, data: List<PetItem>?){
 
 @BindingAdapter("userPets")
  fun bindUserPets(recyclerView: RecyclerView, data: List<PetItem>?){
-    if(recyclerView.adapter == null){
-        recyclerView.adapter = UserPetsAdapter()
-    }
+
     val adapter = recyclerView.adapter as UserPetsAdapter
     adapter.submitList(data)
     Log.d("TAG", "bindUserPets: ${adapter.submitList(data)}")
@@ -60,9 +58,6 @@ fun bindRecyclerView(recyclerView: RecyclerView, data: List<AnnouncementItem>?){
 }
 @BindingAdapter("userAnnouncementData")
 fun bindUserAnnouncement(recyclerView: RecyclerView, data: List<AnnouncementItem>?){
-    if(recyclerView.adapter == null){
-        recyclerView.adapter = UserAnnouncementAdapter()
-    }
     val UserAnnouncementAdapter = recyclerView.adapter as UserAnnouncementAdapter
     UserAnnouncementAdapter.submitList(data)
 }

@@ -22,6 +22,7 @@
         <item>Rabbit</item>
         <item>Hamster</item>
         <item>Bird</item>
+        <item>Else</item>
     </string-array>
 
 
@@ -35,6 +36,8 @@
     <string name="delete">Delete</string>
     <string name="Are_you_Sure_to_delete">Are you Sure to delete ?"</string>
     <string name="Save">save</string>
-
+    <string name="no">No</string>
+    <string name="Deleted_Successfully">Deleted Successfully</string>
+    <string name="An_error_occurred">An error occurred, cannot be delete now</string>
 
 </resources>

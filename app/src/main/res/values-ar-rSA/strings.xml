@@ -26,4 +26,18 @@
     <string name="add_announcement">اضف اعلان</string>
     <string name="delete">حذف</string>
     <string name="Are_you_Sure_to_delete">هل انت واثق من الحذف؟</string>
+    <string name="Save">حفظ</string>
+    <string name="no">لا</string>
+    <string name="Deleted_Successfully">تم الحذف بنجاح</string>
+    <string name="An_error_occurred">حدث خطأ, لا يمكن الحذف الان</string>
+    <string-array name="pets">
+        <item> قطة</item>
+        <item> كلب </item>
+        <item>ارنب</item>
+        <item>هامستر</item>
+        <item>طائر</item>
+        <item>اخرى</item>
+    </string-array>
+
+
 </resources>

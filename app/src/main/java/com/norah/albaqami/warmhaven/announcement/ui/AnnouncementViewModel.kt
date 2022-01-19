@@ -29,17 +29,17 @@ class AnnouncementViewModel : ViewModel() {
                 Api.retrofitService.getAnnouncements().forEach{
                     list.add(it.value)
                 }
-                if(list.isEmpty()) {
-                    _announceList.value = emptyList()
-                    _status.value = ApiStatus.EMPTY
-                }else {
                     _announceList.value = list
                     _status.value = ApiStatus.DONE
-                }
+
             } catch (e: Exception) {
+                if(e is NullPointerException){
+                    _status.value=ApiStatus.EMPTY
+                    _announceList.value = mutableListOf()
+                }else {
                 _status.value = ApiStatus.ERROR
                 _announceList.value = mutableListOf()
-            }
+            }}
         }
     }
 }
