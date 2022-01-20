@@ -9,12 +9,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
+import com.norah.albaqami.warmhaven.R
 import com.norah.albaqami.warmhaven.databinding.FragmentAddAnnouncementBinding
 import com.norah.albaqami.warmhaven.network.AnnouncementItem
 import java.io.IOException
@@ -139,6 +141,7 @@ class AddAnnouncementFragment : Fragment() {
             if(task.isSuccessful) {
                 task.result.addOnCompleteListener {
                     addAnnounce(it.result.toString())
+                    Toast.makeText(requireContext(), getString(R.string.uploading), Toast.LENGTH_SHORT).show()
                 }
 
             } else {

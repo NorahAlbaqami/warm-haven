@@ -48,13 +48,14 @@ class AnnouncementDetailsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         getDetails(announcementId)
     }
+    /*Description : Function for Show announcement details.
+    * Returns : Nothing
+    * Parameters : arg to pass announcement id
+    */
     private fun getDetails(arg: String) {
         val db = FirebaseDatabase.getInstance()
         val mRef = db.getReference("announcement").child(arg)
         mRef.get().addOnCompleteListener { DataSnapshot1 ->
-
-            Log.e("TAG", "getDetails: ${DataSnapshot1.result.value}", )
-
             val details = DataSnapshot1.result.getValue(AnnouncementItem::class.java)
             binding.titleDetail.text = details?.title.toString()
             bindImage(binding.petPictureDetail, details?.image)

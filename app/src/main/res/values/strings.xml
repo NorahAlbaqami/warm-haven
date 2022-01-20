@@ -39,5 +39,7 @@
     <string name="no">No</string>
     <string name="Deleted_Successfully">Deleted Successfully</string>
     <string name="An_error_occurred">An error occurred, cannot be delete now</string>
+    <string name="permission">\"Please Grand Permission for phone call \"</string>
+    <string name="uploading">Uploading</string>
 
 </resources>

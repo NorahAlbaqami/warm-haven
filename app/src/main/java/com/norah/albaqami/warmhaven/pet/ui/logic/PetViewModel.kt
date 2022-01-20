@@ -31,7 +31,6 @@ class PetViewModel : ViewModel() {
 
     init {
         getPetsList()
-
     }
 
     private fun getPetsList() {

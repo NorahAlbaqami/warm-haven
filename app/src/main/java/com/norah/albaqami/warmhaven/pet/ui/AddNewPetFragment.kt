@@ -5,17 +5,17 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
-import android.util.Log
+
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import com.google.firebase.database.FirebaseDatabase
 import com.norah.albaqami.warmhaven.R
 import com.norah.albaqami.warmhaven.databinding.FragmentAddNewPetBinding
 import androidx.navigation.fragment.findNavController
-import com.google.android.gms.tasks.OnSuccessListener
 import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.storage.FirebaseStorage
@@ -144,6 +144,7 @@ class AddNewPetFragment : Fragment() {
             if(task.isSuccessful) {
                 task.result.addOnCompleteListener {
                     addNewPet(it.result.toString())
+                    Toast.makeText(requireContext(), getString(R.string.uploading), Toast.LENGTH_SHORT).show()
                 }
 
             } else {

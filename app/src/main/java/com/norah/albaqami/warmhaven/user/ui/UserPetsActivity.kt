@@ -1,5 +1,6 @@
 package com.norah.albaqami.warmhaven.user.ui
 
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -29,6 +30,9 @@ class UserPetsActivity : AppCompatActivity() {
             deletePet(it.id!!)
         }
         setContentView(binding.root)
+        if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.LOLLIPOP) {
+            getWindow().setNavigationBarColor(getResources().getColor(R.color.baby_pink))
+        }
     }
     fun deletePet(id: String) {
         var db = FirebaseDatabase.getInstance().getReference("pet")

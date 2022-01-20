@@ -10,7 +10,7 @@
     </data>
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
-        android:layout_height="500dp"
+        android:layout_height="550dp"
         app:cardUseCompatPadding="true"
         app:cardCornerRadius="30dp"
         android:id="@+id/AnnouncementCard">
@@ -36,20 +36,21 @@
 
             <TextView
                 android:id="@+id/title"
-                android:gravity="center"
                 android:layout_width="37dp"
                 android:layout_height="24dp"
+                android:layout_marginEnd="164dp"
+                android:gravity="center"
                 android:text="@string/title"
                 android:textColor="@color/teal_200"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
+
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.942"
-                app:layout_constraintStart_toEndOf="@+id/imageView3"
                 app:layout_constraintTop_toBottomOf="@+id/pet_picture"
-                app:layout_constraintVertical_bias="0.225" />
+                app:layout_constraintVertical_bias="0.157" />
 
             <TextView
+                android:id="@+id/textView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -62,28 +63,26 @@
 
             <TextView
                 android:id="@+id/location"
-                android:layout_width="0dp"
-                android:gravity="center"
-                android:layout_height="16dp"
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:gravity="center"
                 android:text="@{result.location}"
                 app:layout_constraintEnd_toEndOf="@+id/imageView3"
-                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/imageView3"
                 app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
             <ImageView
                 android:id="@+id/imageView3"
-                android:layout_width="41dp"
+                android:layout_width="30dp"
                 android:layout_height="39dp"
                 android:layout_marginTop="24dp"
                 android:src="@drawable/location"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.097"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/pet_picture"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintEnd_toEndOf="@+id/textView3"
+                app:layout_constraintHorizontal_bias="0.4"
+                app:layout_constraintStart_toStartOf="@+id/textView3"
+                app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

@@ -49,7 +49,7 @@ class HomeScreenFragment : Fragment() {
                 getActivity()?.startActivity(intent)
             }
         }
-userVieModel.getUserPets(FirebaseAuth.getInstance().uid?:"")
+
 
      binding.pets.setOnClickListener { view :View ->
          Navigation.findNavController(view).navigate(HomeScreenFragmentDirections.actionHomeScreenFragmentToPetsListFragment())

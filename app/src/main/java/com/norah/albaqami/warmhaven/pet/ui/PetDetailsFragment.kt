@@ -17,6 +17,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat.startActivity
 import androidx.fragment.app.viewModels
 import com.google.firebase.database.FirebaseDatabase
+import com.norah.albaqami.warmhaven.R
 import com.norah.albaqami.warmhaven.binding.bindImage
 import com.norah.albaqami.warmhaven.databinding.FragmentPetDetailsBinding
 import com.norah.albaqami.warmhaven.network.PetItem
@@ -54,12 +55,15 @@ class PetDetailsFragment : Fragment() {
         getDetails(id)
     }
 
+    /*Description : Function for Show pet details.
+        * Returns : Nothing
+        * Parameters : arg to pass pet id
+        */
     private fun getDetails(arg: String) {
         val db = FirebaseDatabase.getInstance()
         val mRef = db.getReference("pet").child(arg)
 
         mRef.get().addOnCompleteListener { DataSnapshot1 ->
-           // Log.e("TAG", "getDetails: ${DataSnapshot1.result.value}", )
             val petdetails = DataSnapshot1.result.getValue(PetItem::class.java)
             binding.petDescription.text = petdetails?.description.toString()
             bindImage(binding.petPictureDetail, petdetails?.image)
@@ -69,7 +73,7 @@ class PetDetailsFragment : Fragment() {
 
                 var phoneNumber = petdetails?.phone.toString().trim()
                 if(ActivityCompat.checkSelfPermission(requireContext(), android.Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
-                    Toast.makeText(requireContext(), "Please Grand Permission for phone call ", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), getString(R.string.permission), Toast.LENGTH_SHORT).show()
                 } else {
                     val intent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + Uri.encode(phoneNumber)))
                     startActivity(intent)

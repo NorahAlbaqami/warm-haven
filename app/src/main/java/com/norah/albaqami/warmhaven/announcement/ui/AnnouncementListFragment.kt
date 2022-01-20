@@ -36,6 +36,9 @@ class AnnouncementListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        /**
+         * it will check if user not authorized it's will redirect him to login activity
+         */
         binding.addAnnouncementBtn.setOnClickListener {
             if(auth == null) {
                 val intent = Intent(getActivity(), LogInActivity::class.java)

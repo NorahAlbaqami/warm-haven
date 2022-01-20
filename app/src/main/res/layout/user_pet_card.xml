@@ -12,7 +12,7 @@
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="200dp"
         app:cardUseCompatPadding="true"
         app:cardCornerRadius="30dp">
 
@@ -21,13 +21,14 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <com.google.android.material.imageview.ShapeableImageView
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/shapeableImageView"
                 android:layout_width="126dp"
-                android:layout_height="170dp"
+                android:layout_height="200dp"
                 app:imageUrl="@{resultItem.image}"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintHorizontal_bias="0.136"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -35,12 +36,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@{resultItem.name}"
+                android:textStyle="bold"
+                android:textColor="@color/teal_200"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.03"
+                app:layout_constraintHorizontal_bias="0.524"
                 app:layout_constraintStart_toEndOf="@+id/shapeableImageView"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.046" />
+                app:layout_constraintVertical_bias="0.318" />
 
             <ImageView
                 android:id="@+id/edit_pet"
@@ -48,10 +51,10 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.757"
+                app:layout_constraintHorizontal_bias="0.921"
                 app:layout_constraintStart_toEndOf="@+id/shapeableImageView"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.89"
+                app:layout_constraintVertical_bias="0.888"
                 app:srcCompat="@drawable/edit" />
 
             <ImageView
@@ -60,10 +63,10 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.543"
+                app:layout_constraintHorizontal_bias="0.694"
                 app:layout_constraintStart_toEndOf="@+id/shapeableImageView"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.89"
+                app:layout_constraintVertical_bias="0.888"
                 app:srcCompat="@drawable/delete" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 

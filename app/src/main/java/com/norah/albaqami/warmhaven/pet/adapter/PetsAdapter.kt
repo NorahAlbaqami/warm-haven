@@ -56,8 +56,6 @@ class PetsAdapter : ListAdapter<PetItem, PetsAdapter.PetViewHolder>(DiffCallback
             holder.itemView.findNavController().navigate(action)
 
 
-           // Log.e("TAG", "onBindViewHolder: ${petPhoto.id}", )
-
         }
     }
 }

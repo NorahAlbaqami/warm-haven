@@ -27,20 +27,20 @@
             />
 
 
-
+        <!--endregion-->
+        <!--region $Type -->
         <androidx.constraintlayout.utils.widget.ImageFilterView
             android:id="@+id/select_pet_image"
             android:layout_width="35dp"
             android:layout_height="46dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.192"
+            app:layout_constraintHorizontal_bias="0.291"
             app:layout_constraintStart_toEndOf="@+id/pet_pic"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.214"
-            app:srcCompat="@drawable/petpic" />
-        <!--endregion-->
-        <!--region $Type -->
+            app:layout_constraintVertical_bias="0.215"
+            app:srcCompat="@drawable/add" />
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/type"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"

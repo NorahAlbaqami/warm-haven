@@ -2,6 +2,7 @@ package com.norah.albaqami.warmhaven.user.ui
 
 import android.content.Intent
 import android.net.Uri
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
@@ -31,7 +32,9 @@ class EditUserAnnouncementActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this,R.layout.activity_edit_user_announcement)
         binding.lifecycleOwner = this
         setContentView(binding.root)
-
+        if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.LOLLIPOP) {
+            getWindow().setNavigationBarColor(getResources().getColor(R.color.baby_pink))
+        }
         idAnnounce = intent.getStringExtra("idAnn").toString()
         binding.selectPetImage.setOnClickListener {
             launchGallery()

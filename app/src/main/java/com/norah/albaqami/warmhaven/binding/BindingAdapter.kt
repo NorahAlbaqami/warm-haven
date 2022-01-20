@@ -24,7 +24,7 @@ fun bindImage(imgView: ImageView, imgUrl: String?) {
             .placeholder(R.drawable.loading_animation)
             .error(R.drawable.ic_broken_image)
             .into(imgView)
-       // Log.d("nana", "bindImage: ${imgUrl}")
+
     }
 }
 
@@ -35,8 +35,6 @@ fun bindRecyclerView(recyclerView: RecyclerView, data: List<PetItem>?){
     }
     val adapter = recyclerView.adapter as PetsAdapter
     adapter.submitList(data)
-//        val userPetsAdapter = recyclerView.adapter as UserPetsAdapter
-//    userPetsAdapter.submitList(data)
 }
 
 @BindingAdapter("userPets")
@@ -44,7 +42,7 @@ fun bindRecyclerView(recyclerView: RecyclerView, data: List<PetItem>?){
 
     val adapter = recyclerView.adapter as UserPetsAdapter
     adapter.submitList(data)
-    Log.d("TAG", "bindUserPets: ${adapter.submitList(data)}")
+
 }
 
 @JvmName("bindRecyclerView1")

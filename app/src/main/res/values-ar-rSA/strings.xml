@@ -38,6 +38,8 @@
         <item>طائر</item>
         <item>اخرى</item>
     </string-array>
+    <string name="permission">قم بتفعيل اذن استخدام الهاتف رجاء</string>
+    <string name="uploading">تحميل</string>
 
 
 </resources>
