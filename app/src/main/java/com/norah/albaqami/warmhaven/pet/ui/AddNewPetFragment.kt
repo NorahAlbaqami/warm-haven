@@ -64,7 +64,7 @@ class AddNewPetFragment : Fragment() {
 
     }
 
-
+    //function used to start implicit intent to Gallery()
     private fun launchGallery() {
         val intent = Intent()
         intent.type = "image/*"
@@ -92,7 +92,7 @@ class AddNewPetFragment : Fragment() {
                 && binding.phoneContainer.isValid()
 
     }
-
+    // extension function on text input layout to check if it's null
     fun TextInputLayout.isValid(): Boolean {
         if(this.editText?.text.toString().isNullOrEmpty()) {
             this.error = ""
@@ -104,12 +104,13 @@ class AddNewPetFragment : Fragment() {
 
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
+    override fun onDestroyView() {
+        super.onDestroyView()
         binding == null
     }
 
     var FilePathUri: Uri? = null
+  //to take image from gallery
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if(requestCode == 50 && resultCode == RESULT_OK && data != null && data.data != null) {
@@ -127,7 +128,10 @@ class AddNewPetFragment : Fragment() {
             }
         }
     }
-
+    /**
+     * function from firebase storage to upload image
+     *
+     */
     private fun uploadImage() {
         var imageName: StorageReference =
             storageReference!!.child("pet" + FilePathUri!!.getLastPathSegment())
@@ -143,6 +147,7 @@ class AddNewPetFragment : Fragment() {
         }.addOnCompleteListener { task ->
             if(task.isSuccessful) {
                 task.result.addOnCompleteListener {
+                    // here I will call addNewPet() and pass the image link
                     addNewPet(it.result.toString())
                     Toast.makeText(requireContext(), getString(R.string.uploading), Toast.LENGTH_SHORT).show()
                 }
@@ -154,7 +159,11 @@ class AddNewPetFragment : Fragment() {
         }
 
     }
-
+    /*Description : Function to add new pet it's will take user input
+    ,current authenticated user id and push unique id , then it will add them to pet object .
+   * Returns : Nothing
+   * Parameters : imageLink to pass imageLink from uploadImage() function
+   */
     fun addNewPet(imageLin: String) {
         if(isValid()) {
             val type = binding.autoCompleteTextView.text.toString()

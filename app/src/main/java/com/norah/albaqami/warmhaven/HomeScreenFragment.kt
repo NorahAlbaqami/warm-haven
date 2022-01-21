@@ -40,6 +40,7 @@ class HomeScreenFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        // it's will direct authorized user to profile and non-authorized user to login
         binding.login.setOnClickListener {
             if(auth == null){
             val intent = Intent (getActivity(), LogInActivity::class.java)

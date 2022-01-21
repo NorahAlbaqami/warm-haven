@@ -92,8 +92,11 @@ class EditUserAnnouncementActivity : AppCompatActivity() {
         }
 
     }
-    private fun getDetails(arg: String) {
 
+    /**
+     *
+     */
+    private fun getDetails(arg: String) {
         val mRef = db.getReference("announcement").child(arg)
         mRef.get().addOnCompleteListener { DataSnapshot1 ->
             val details = DataSnapshot1.result.getValue(AnnouncementItem::class.java)
@@ -106,7 +109,10 @@ class EditUserAnnouncementActivity : AppCompatActivity() {
         }
 
     }
-
+    /*Description : Function edit announcement .
+         * Returns : Nothing
+         * Parameters : idEdit to pass announcement id , imageLin to pass image link from uploadImage()
+         */
     fun updateAnnouncement(idEdit: String, imageLin: String) {
         val title = binding.titleInput.text.toString()
         val location = binding.locationInput.text.toString()

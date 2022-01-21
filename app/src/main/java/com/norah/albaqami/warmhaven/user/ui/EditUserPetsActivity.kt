@@ -113,6 +113,10 @@ class EditUserPetsActivity : AppCompatActivity() {
         )
     }
 
+    /*Description : Function edit pet .
+         * Returns : Nothing
+         * Parameters : idEdit to pass pet id , imageLin to pass image link from uploadImage()
+         */
     fun updatePet(idEdit: String, imageLin: String) {
         val type = binding.autoCompleteTextView.text.toString()
         val name = binding.nameInput.text.toString()

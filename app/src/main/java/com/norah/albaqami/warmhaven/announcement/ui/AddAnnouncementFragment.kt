@@ -54,6 +54,7 @@ class AddAnnouncementFragment : Fragment() {
 
         }
     }
+
     fun isValid(): Boolean {
 
         return  binding.descriptionContainer.isValid()
@@ -62,7 +63,7 @@ class AddAnnouncementFragment : Fragment() {
                 && binding.phoneContainer.isValid()
                 && binding.titleContainer.isValid()
     }
-
+// extension function on text input layout to check if it's null
     fun TextInputLayout.isValid(): Boolean {
         if(this.editText?.text.toString().isNullOrEmpty()) {
             this.error=""
@@ -73,13 +74,18 @@ class AddAnnouncementFragment : Fragment() {
         }
 
     }
+
+    /*Description : Function to add new announce it's will take user input
+    ,current authenticated user id and push unique id , then it will add them to pet object .
+   * Returns : Nothing
+   * Parameters : imageLink to pass imageLink from uploadImage() function
+   */
     fun addAnnounce( imageLink :String){
         if (isValid()){
             val title = binding.titleInput.text.toString()
             val location = binding.locationInput.text.toString()
             val phone = binding.phoneInput.text.toString()
             val description = binding.descriptionInput.text.toString()
-
             val id = mRef.push().key
             val userId = auth?.uid
             val newAnnouncement = AnnouncementItem(id, userId,title, description, location, imageLink, phone)
@@ -96,6 +102,7 @@ class AddAnnouncementFragment : Fragment() {
 
         }
     }
+    //function used to start implicit intent to Gallery()
     private fun launchGallery() {
         val intent = Intent()
         intent.type = "image/*"
@@ -107,6 +114,7 @@ class AddAnnouncementFragment : Fragment() {
 
     }
     var FilePathUri: Uri? = null
+    //to take image from gallery
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if(requestCode == 50 && resultCode == Activity.RESULT_OK && data != null && data.data != null) {
@@ -125,6 +133,10 @@ class AddAnnouncementFragment : Fragment() {
         }
     }
 
+    /**
+     * function from firebase storage to upload image
+     *
+     */
     private fun uploadImage() {
         var imageName: StorageReference =
             storageReference!!.child("announcement" + FilePathUri!!.getLastPathSegment())
@@ -140,6 +152,7 @@ class AddAnnouncementFragment : Fragment() {
         }.addOnCompleteListener { task ->
             if(task.isSuccessful) {
                 task.result.addOnCompleteListener {
+                    // here I will call addAnnounce() and pass the image link
                     addAnnounce(it.result.toString())
                     Toast.makeText(requireContext(), getString(R.string.uploading), Toast.LENGTH_SHORT).show()
                 }

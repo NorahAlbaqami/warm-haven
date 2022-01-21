@@ -1,12 +1,11 @@
 package com.norah.albaqami.warmhaven.pet.ui
 
-import android.content.Context
+
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -14,7 +13,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat.startActivity
 import androidx.fragment.app.viewModels
 import com.google.firebase.database.FirebaseDatabase
 import com.norah.albaqami.warmhaven.R
