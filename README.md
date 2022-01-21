@@ -28,5 +28,8 @@
         <img width="350" alt="Screen Shot 2021-12-05 at 2 27 24 PM" src="https://raw.githubusercontent.com/NorahAlbaqami/warm-haven/master/app/src/main/res/drawable/five.gif">
             <img width="350" alt="Screen Shot 2021-12-05 at 2 27 24 PM" src="https://raw.githubusercontent.com/NorahAlbaqami/warm-haven/master/app/src/main/res/drawable/six.gif">
              <img width="350" alt="Screen Shot 2021-12-05 at 2 27 24 PM" src="https://raw.githubusercontent.com/NorahAlbaqami/warm-haven/master/app/src/main/res/drawable/saven.gif">
+             <img width="350" alt="Screen Shot 2021-12-05 at 2 27 24 PM" src="https://raw.githubusercontent.com/NorahAlbaqami/warm-haven/master/app/src/main/res/drawable/notifaction.jpg">
+             <img width="350" alt="Screen Shot 2021-12-05 at 2 27 24 PM" src="https://raw.githubusercontent.com/NorahAlbaqami/warm-haven/master/app/src/main/res/drawable/notificatiion.jpg">
+
 
 
