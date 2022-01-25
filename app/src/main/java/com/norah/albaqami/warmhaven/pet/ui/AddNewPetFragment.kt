@@ -58,7 +58,12 @@ class AddNewPetFragment : Fragment() {
 
 
         binding.btnAdd.setOnClickListener {
-            uploadImage()
+            if(validationHasPhoto()){
+                uploadImage()
+            }else{
+                Toast.makeText(requireContext(), getString(R.string.selecr_an_image_please), Toast.LENGTH_SHORT).show()
+
+            }
 
         }
 
@@ -188,5 +193,12 @@ class AddNewPetFragment : Fragment() {
 
         }
     }
+    fun validationHasPhoto():Boolean{
+        var result = true
+        if (FilePathUri == null){
+            result = false
+        }else true
 
+        return result
+    }
 }

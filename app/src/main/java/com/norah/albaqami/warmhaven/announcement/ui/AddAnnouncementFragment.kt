@@ -23,6 +23,7 @@ import java.io.IOException
 
 
 class AddAnnouncementFragment : Fragment() {
+    var FilePathUri: Uri? = null
     private lateinit var binding: FragmentAddAnnouncementBinding
     val auth = FirebaseAuth.getInstance().currentUser
     val db = FirebaseDatabase.getInstance()
@@ -50,7 +51,12 @@ class AddAnnouncementFragment : Fragment() {
             launchGallery()
         }
         binding.btnAdd.setOnClickListener {
-            uploadImage()
+            if(validationHasPhoto()){
+                uploadImage()
+            }else{
+                Toast.makeText(requireContext(), getString(R.string.selecr_an_image_please), Toast.LENGTH_SHORT).show()
+            }
+
 
         }
     }
@@ -113,7 +119,7 @@ class AddAnnouncementFragment : Fragment() {
         )
 
     }
-    var FilePathUri: Uri? = null
+
     //to take image from gallery
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
@@ -158,10 +164,18 @@ class AddAnnouncementFragment : Fragment() {
                 }
 
             } else {
-                // Handle failures
-                // ...
+                Toast.makeText(requireContext(), getString(R.string.selecr_an_image_please), Toast.LENGTH_SHORT).show()
             }
         }
 
+    }
+
+    fun validationHasPhoto():Boolean{
+        var result = true
+        if (FilePathUri == null){
+            result = false
+        }else true
+
+        return result
     }
 }

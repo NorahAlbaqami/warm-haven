@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
 import android.widget.Toast
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.databinding.DataBindingUtil
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
@@ -40,7 +41,11 @@ class EditUserAnnouncementActivity : AppCompatActivity() {
             launchGallery()
         }
         binding.btnEdit.setOnClickListener {
-            uploadImage()
+            if(validationHasPhoto()){
+                uploadImage()
+            }else{
+            Toast.makeText(this, getString(R.string.selecr_an_image_please), Toast.LENGTH_SHORT).show()
+}
         }
         getDetails(idAnnounce)
     }
@@ -123,5 +128,13 @@ class EditUserAnnouncementActivity : AppCompatActivity() {
         db.getReference("announcement/$idEdit").setValue(editAnnouncement).addOnCompleteListener {
             Toast.makeText(this, "Edit it successfully", Toast.LENGTH_SHORT).show()
         }
+    }
+    fun validationHasPhoto():Boolean{
+        var result = true
+        if (FilePathUri == null){
+            result = false
+        }else true
+
+        return result
     }
 }
