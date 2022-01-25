@@ -20,7 +20,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
     fun generatorNotification(title : String, message:String){
 val intent = Intent(this,MainActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-val pendingIntent = PendingIntent.getActivity(this,0,intent,PendingIntent.FLAG_ONE_SHOT)
+       val pendingIntent = PendingIntent.getActivity(this,0,intent,PendingIntent.FLAG_ONE_SHOT)
        var builder : NotificationCompat.Builder =  NotificationCompat.Builder(applicationContext,
            channel_id)
            .setSmallIcon(R.drawable.appicon)

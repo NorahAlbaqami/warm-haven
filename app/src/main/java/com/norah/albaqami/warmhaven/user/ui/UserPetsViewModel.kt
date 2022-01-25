@@ -39,6 +39,12 @@ class UserPetsViewModel : ViewModel() {
                     list.add(it.value)
                 }
                     _petsList.value = list.filter { it.userId == userId }
+                if(_petsList == null){
+                    _status.value = ApiStatus.EMPTY
+                }else {
+                    _status.value = ApiStatus.DONE
+                }
+
             } catch (e: Exception) {
                 if(e is NullPointerException) {
                     _status.value = ApiStatus.EMPTY
@@ -60,8 +66,12 @@ class UserPetsViewModel : ViewModel() {
                 Api.retrofitService.getAnnouncements().forEach {
                     list.add(it.value)
                 }
-                    _announcementsList.value = list.filter { it.userId == userId }
+                _announcementsList.value = list.filter { it.userId == userId }
+                if(_announcementsList == null){
+                    _status.value = ApiStatus.EMPTY
+                }else {
                     _status.value = ApiStatus.DONE
+                }
             } catch (e: Exception) {
                 if(e is NullPointerException){
                     _status.value=ApiStatus.EMPTY
