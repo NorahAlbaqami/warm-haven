@@ -42,5 +42,6 @@
     <string name="permission">Please Grand Permission for phone call </string>
     <string name="uploading">Uploading</string>
     <string name="selecr_an_image_please">Select an image please</string>
+    <string name="Choose_Language">Choose Language</string>
 
 </resources>

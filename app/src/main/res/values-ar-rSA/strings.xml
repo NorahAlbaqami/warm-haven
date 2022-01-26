@@ -41,6 +41,7 @@
     <string name="permission">قم بتفعيل اذن استخدام الهاتف رجاء</string>
     <string name="uploading">تحميل</string>
     <string name="selecr_an_image_please">اختر صورة رجاء</string>
+    <string name="Choose_Language">اختر اللغة</string>
 
 
 </resources>

@@ -1,7 +1,10 @@
 package com.norah.albaqami.warmhaven.user.data
 
+import android.app.Activity
+import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
+import android.content.res.Configuration
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -17,6 +20,7 @@ import com.norah.albaqami.warmhaven.R
 import com.norah.albaqami.warmhaven.databinding.ActivityProfileBinding
 import com.norah.albaqami.warmhaven.user.ui.UserAnnouncementActivity
 import com.norah.albaqami.warmhaven.user.ui.UserPetsActivity
+import java.util.*
 
 
 class ProfileActivity : AppCompatActivity() {
@@ -26,6 +30,7 @@ class ProfileActivity : AppCompatActivity() {
     val NAME ="name"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        loadLocate()
       binding = DataBindingUtil.setContentView(this, R.layout.activity_profile)
         if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.LOLLIPOP) {
             getWindow().setNavigationBarColor(getResources().getColor(R.color.baby_pink))
@@ -35,6 +40,7 @@ class ProfileActivity : AppCompatActivity() {
         binding.savename.setOnClickListener {
             saveData()
         }
+        binding.lang.setOnClickListener { showChangeLang() }
          getUserEmail()
         getUserNumber()
         binding.logout.setOnClickListener {
@@ -85,5 +91,51 @@ class ProfileActivity : AppCompatActivity() {
 
         binding.nameInput.setText(name)
 
+    }
+
+    private fun showChangeLang() {
+
+        val listItmes = arrayOf("عربي", "English")
+
+        val mBuilder = AlertDialog.Builder(this)
+        mBuilder.setTitle(getString(R.string.Choose_Language))
+        mBuilder.setSingleChoiceItems(listItmes, -1) { dialog, which ->
+            if (which == 0) {
+                setLocate("ar")
+                recreate()
+            } else if (which == 1) {
+                setLocate("en")
+                recreate()
+            }
+
+            dialog.dismiss()
+        }
+        val mDialog = mBuilder.create()
+
+        mDialog.show()
+
+    }
+    private fun setLocate(Lang: String) {
+
+        val locale = Locale(Lang)
+
+        Locale.setDefault(locale)
+
+        val config = Configuration()
+
+        config.locale = locale
+        baseContext.resources.updateConfiguration(config, baseContext.resources.displayMetrics)
+
+        val editor = getSharedPreferences("Settings", Context.MODE_PRIVATE).edit()
+        editor.putString("My_Lang", Lang)
+        editor.apply()
+    }
+
+    private fun loadLocate() {
+        val sharedPreferences = getSharedPreferences("Settings", Activity.MODE_PRIVATE)
+        val language = sharedPreferences.getString("My_Lang", "")
+        if(language != null) {
+            setLocate(language)
+        }
     }
 }
