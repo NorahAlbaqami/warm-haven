@@ -26,6 +26,7 @@ class LogInActivity : AppCompatActivity() {
         setContentView(R.layout.activity_log_in)
         loginOptions()
 
+
     }
    private fun loginOptions(){
         val providers = arrayListOf<AuthUI.IdpConfig>(
@@ -64,4 +65,5 @@ class LogInActivity : AppCompatActivity() {
             }
 
         }
+
     }
